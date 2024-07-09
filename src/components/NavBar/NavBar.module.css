@@ -1,0 +1,49 @@
+header{
+    font-family: 'Roboto', Arial, Helvetica, sans-serif;
+    padding: 0;
+    margin: 0;
+}
+
+.logo{
+    padding: 25px;
+    align-self: center;
+    border: 2px solid red;
+}
+
+.header{
+    display: flex;
+    justify-content: space-between;
+    border: 2px solid red;
+}
+
+.menu{
+    border: 2px solid red;
+    align-self: center;
+}
+
+.menu ul{
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.menu li{
+    display: inline-block;
+}
+
+.menu li a{
+    text-decoration: none;
+    padding: 8px 80px;
+    font-size: 22px;
+    color: black;
+}
+
+.buttons{
+    align-self: center;
+}
+
+.buttons a{
+    text-decoration: none;
+    padding: 25px;
+    color: black;
+    font-size: 22px;
+}
