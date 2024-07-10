@@ -5,7 +5,10 @@ import NavBar from '../NavBar/NavBar';
 
 function HomePage(){
     return(
-        <NavBar/>
+        <>
+            <title></title>
+            <NavBar/>
+        </>
     );
 };
 
