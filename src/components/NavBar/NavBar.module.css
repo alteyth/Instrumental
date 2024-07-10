@@ -14,10 +14,14 @@ header, body{
     display: flex;
     justify-content: space-between;
     background-color: black;
+    gap: 2rem;
+    padding: 0 1rem;
     /* border: 2px solid blue; */
 }
 
 .menu{
+    display: flex;
+    justify-content: space-between;
     /* border: 2px solid blue; */
     align-self: center;
 }
@@ -25,26 +29,31 @@ header, body{
 .menu ul{
     display: flex;
     justify-content: space-between;
-    /* border: 2px solid blue; */
+    align-items: center;
+    /* border: 1px solid pink; */
     list-style-type: none;
-    padding: 0 0px;
+    padding: 0;
+    margin: 0;
 }
 
-.menu li:hover{
-    background-color: #777;
+.menu a{
+    /* border: 2px solid blue; */
+    display: flex;
+    align-items: stretch;
+    text-decoration: none;
+    height: 100%;
+    padding: 18.5px 3rem;
+    font-size: 22px;
+    color: white;
 }
 
 .menu li{
-    /* border: 2px solid blue; */
-    padding: 0px 0px;
+    transition: 0.13s;
 }
 
-.menu li a{
-    /* border: 2px solid blue; */
-    text-decoration: none;
-    padding: 0 30px;
-    font-size: 22px;
-    color: white;
+.menu li:hover{
+    background-color: #222;
+    transition: 0.16s;
 }
 
 .buttons{
@@ -52,12 +61,14 @@ header, body{
 }
 
 .buttons a:hover{
-    background-color: #777;
+    background-color: #222;
+    transition: 0.16s;
 }
 
 .buttons a{
+    transition: 0.13s;
     text-decoration: none;
-    padding: 25px;
+    padding: 18.5px 2rem;
     color: white;
     font-size: 22px;
 }
