@@ -72,3 +72,9 @@ header, body{
     color: white;
     font-size: 22px;
 }
+
+.buttons .icon{
+    vertical-align: middle;
+    padding-top: 100%;
+    padding-bottom: 1rem;
+}

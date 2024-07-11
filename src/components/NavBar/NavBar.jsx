@@ -1,4 +1,5 @@
 import React, { userState} from 'react'
+import { ShoppingCart } from 'phosphor-react'
 import Logo from '../../assets/instrumental.svg'
 import styles from './NavBar.module.css'
 import SearchBar from '../SearchBar/SearchBar';
@@ -22,6 +23,7 @@ function NavBar() {
         <SearchBar/>
 
         <div className={styles.buttons}>
+            <Link to="/cart" className={styles.icon}> <ShoppingCart size={20}/> </Link>
             <Link to="/register"> Register </Link>
             <Link to="/login"> Login </Link>
         </div>
