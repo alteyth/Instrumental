@@ -1,14 +1,16 @@
-import React, { userState} from 'react'
-import styles from './SearchBar.module.css'
+import React, { userState } from "react";
+import styles from "./SearchBar.module.css";
 
-function SearchBar(){
-
-    return(
+function SearchBar() {
+    return (
         <>
-            <input type="text" placeholder="Search.." className={styles.searchbar}/>
+            <input
+                type="text"
+                placeholder="Search.."
+                className={styles.searchbar}
+            />
         </>
     );
-
-};
+}
 
 export default SearchBar;

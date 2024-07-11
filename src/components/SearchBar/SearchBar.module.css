@@ -1,4 +1,12 @@
-.searchbar{
+html,
+header,
+body {
+    font-family: "Roboto";
+    padding: 0;
+    margin: 0;
+}
+
+.searchbar {
     align-self: center;
     padding: 0;
     height: 2rem;
@@ -7,11 +15,11 @@
     border-radius: 8px;
 }
 
-.searchbar{
+.searchbar {
     padding: 2px;
     text-indent: 8px;
 }
 
-.searchbar::placeholder{
+.searchbar::placeholder {
     text-indent: 8px;
 }

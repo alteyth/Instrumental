@@ -1,16 +1,18 @@
-header, body{
-    font-family: 'Roboto', Arial, Helvetica, sans-serif;
+html,
+header,
+body {
+    font-family: "Roboto";
     padding: 0;
     margin: 0;
 }
 
-.logo{
+.logo {
     padding: 16px 25px;
     align-self: center;
     /* border: 2px solid red; */
 }
 
-.header{
+.header {
     display: flex;
     justify-content: space-between;
     background-color: black;
@@ -19,14 +21,14 @@ header, body{
     /* border: 2px solid blue; */
 }
 
-.menu{
+.menu {
     display: flex;
     justify-content: space-between;
     /* border: 2px solid blue; */
     align-self: center;
 }
 
-.menu ul{
+.menu ul {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -36,7 +38,7 @@ header, body{
     margin: 0;
 }
 
-.menu a{
+.menu a {
     /* border: 2px solid blue; */
     display: flex;
     align-items: stretch;
@@ -47,25 +49,25 @@ header, body{
     color: white;
 }
 
-.menu li{
+.menu li {
     transition: 0.13s;
 }
 
-.menu li:hover{
+.menu li:hover {
     background-color: #222;
     transition: 0.16s;
 }
 
-.buttons{
+.buttons {
     align-self: center;
 }
 
-.buttons a:hover{
+.buttons a:hover {
     background-color: #222;
     transition: 0.16s;
 }
 
-.buttons a{
+.buttons a {
     transition: 0.13s;
     text-decoration: none;
     padding: 18.5px 2rem;
@@ -73,7 +75,7 @@ header, body{
     font-size: 22px;
 }
 
-.buttons .icon{
+.buttons .icon {
     vertical-align: middle;
     padding-top: 100%;
     padding-bottom: 1rem;
