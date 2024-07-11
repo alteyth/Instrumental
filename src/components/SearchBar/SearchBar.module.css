@@ -7,6 +7,11 @@
     border-radius: 8px;
 }
 
+.searchbar{
+    padding: 2px;
+    text-indent: 8px;
+}
+
 .searchbar::placeholder{
-    padding: 5px;
+    text-indent: 8px;
 }
