@@ -16,18 +16,18 @@ app.get('/api/users', async (req, res) => {
 });
 
 app.get('/api/users/:id', async (req, res) => {
-    const id = req.params.id;
+    const UserId = req.params.id;
     try{
         const result = await sql`
         SELECT id, email, password, first_name, last_name
         FROM users
-        WHERE id = ${id}`;
+        WHERE id = ${UserId}`;
 
         if(result.length === 0){
-            res.status(404).json({error: `User with id: (${id}) not found`});
+            res.status(404).json({error: `User with id: (${UserId}) not found`});
             return;
         }
-        res.status(200);
+        res.status(200).json(result);
         return;
     }catch(error){
         console.error('Error in data retrieval', error);
@@ -44,9 +44,6 @@ app.post('/api/users', async (req, res) => {
     }
 
     try{
-        // const maxId = await sql`SELECT MAX(id) AS max_id FROM users`;
-        // const id = maxId + 1;
-
         const result = await sql`
         INSERT INTO users (email, password, first_name, last_name)
         VALUES (${email}, ${password}, ${first_name}, ${last_name})

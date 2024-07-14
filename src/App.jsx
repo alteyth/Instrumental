@@ -5,21 +5,24 @@ import NavBar from "./components/NavBar/NavBar";
 import Services from "./pages/Services/Services";
 import Footer from "./components/Footer/Footer";
 import About from "./pages/About/About";
-import Cart from './pages/Cart/Cart'
+import Cart from './pages/Cart/Cart';
+import Register from './pages/Register/Register';
+import { SessionProvider } from "./context/SessionContext";
 
 function App() {
     return (
         <>
-            <NavBar />
-            <div>
-                <Routes>
-                    <Route path="/" element={HomePage} />
-                    <Route path="/services" element={<Services />} />
-                    <Route path="about" element={<About />}/>
-                    <Route path="cart" element={<Cart />}/>
-                </Routes>
-            </div>
-            <Footer />
+                    <NavBar />
+                    <div>
+                        <Routes>
+                            <Route path="/" element={HomePage} />
+                            <Route path="/services" element={<Services />} />
+                            <Route path="/about" element={<About />}/>
+                            <Route path="/cart" element={<Cart />}/>
+                            <Route path="/register" element={<Register />} />
+                        </Routes>
+                    </div>
+                    <Footer />
         </>
     );
 }

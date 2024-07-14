@@ -29,8 +29,7 @@ function NavBar() {
 
                 <div className={styles.buttons}>
                     <Link to="/cart" className={styles.icon}>
-                        {" "}
-                        <ShoppingCart size={20} />{" "}
+                        <ShoppingCart size={20} />
                     </Link>
                     <Link to="/register"> Register </Link>
                     <Link to="/login"> Login </Link>

@@ -7,6 +7,8 @@ function SearchBar() {
             <input
                 type="text"
                 placeholder="Search.."
+                name="searchbar"
+                id="searchbar"
                 className={styles.searchbar}
             />
         </>
