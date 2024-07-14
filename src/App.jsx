@@ -12,6 +12,7 @@ import { SessionProvider } from "./context/SessionContext";
 function App() {
     return (
         <>
+                <SessionProvider>
                     <NavBar />
                     <div>
                         <Routes>
@@ -23,6 +24,7 @@ function App() {
                         </Routes>
                     </div>
                     <Footer />
+                </SessionProvider>
         </>
     );
 }
