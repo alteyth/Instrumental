@@ -16,7 +16,7 @@ function App() {
                     <NavBar />
                     <div>
                         <Routes>
-                            <Route path="/" element={HomePage} />
+                            <Route path="/" element={<HomePage />} />
                             <Route path="/services" element={<Services />} />
                             <Route path="/about" element={<About />}/>
                             <Route path="/cart" element={<Cart />}/>
