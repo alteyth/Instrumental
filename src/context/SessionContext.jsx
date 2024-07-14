@@ -28,7 +28,6 @@ export function SessionProvider(props){
         last_name,
         setLast_name
     };
-    console.log(props.children);
     return(
         <SessionContext.Provider value={value}> 
             {props.children}
