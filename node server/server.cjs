@@ -1,7 +1,9 @@
 require('dotenv').config();
+const cors = require('cors');
 const postgres = require('postgres');
 const express = require('express');
 const app = express();
+app.use(cors());
 app.use(express.json());
 const port = process.env.PORT;
 const connectionString = process.env.DATABASE_URL;
@@ -9,7 +11,7 @@ const sql = postgres(connectionString);
 
 app.get('/api/users', async (req, res) => {
     const result = await sql`
-    SELECT email, password
+    SELECT id, email, password
     FROM users`;
 
     res.json(result).status(200);
@@ -52,7 +54,7 @@ app.post('/api/users', async (req, res) => {
         return;
     }catch(error){
         console.error('Error in data insertion', error);
-        res.status(500).json({error: 'Error in data insertion'});
+        res.status(500).json({error: error['routine']});
     }
 });
 

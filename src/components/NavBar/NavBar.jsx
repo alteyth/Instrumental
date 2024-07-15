@@ -1,11 +1,26 @@
-import React, { userState } from "react";
+import React, { useEffect } from "react";
 import { ShoppingCart } from "phosphor-react";
 import Logo from "../../assets/instrumental.svg";
 import styles from "./NavBar.module.css";
 import SearchBar from "../SearchBar/SearchBar";
 import { Link } from "react-router-dom";
+import { useSession } from "../../context/SessionContext";
+import { useNavigate } from "react-router-dom";
 
 function NavBar() {
+    const navigate = useNavigate();
+    const { isLogged, setIsLogged } = useSession();
+
+    function logout(){
+        setIsLogged(false);
+    }
+
+    useEffect(() => {
+        if(!isLogged){
+            navigate("/");
+        }
+    }, [isLogged]);
+
     return (
         <>
             <header className={styles.header}>
@@ -26,13 +41,22 @@ function NavBar() {
                 </nav>
 
                 <SearchBar />
-
-                <div className={styles.buttons}>
-                    <Link to="/cart" className={styles.icon}>
-                        <ShoppingCart size={20} />
-                    </Link>
-                    <Link to="/register"> Register </Link>
-                    <Link to="/login"> Login </Link>
+                    <div className={styles.buttons}>
+                        <Link to="/cart" className={styles.icon}>
+                            <ShoppingCart size={20} />
+                        </Link>
+                        {
+                        isLogged ?
+                        <>
+                            <Link to="/personalarea"> Personal Area </Link>
+                            <Link onClick={() => logout()}> Logout </Link>
+                        </> :
+                        <>
+                            
+                            <Link to="/register"> Register </Link>
+                            <Link to="/login"> Login </Link>
+                        </>
+                    }
                 </div>
             </header>
         </>

@@ -8,11 +8,11 @@ export function useSession(){
 
 export function SessionProvider(props){
     const [isLogged, setIsLogged] = useState(false);
-    const [userId, setUserID] = useState(null);
-    const [email, setEmail] = useState(null);
-    const [password, setPassword] = useState(null);
-    const [first_name, setFirst_name] = useState(null);
-    const [last_name, setLast_name] = useState(null);
+    const [userId, setUserID] = useState(0);
+    const [email, setEmail] = useState(0);
+    const [password, setPassword] = useState(0);
+    const [first_name, setFirst_name] = useState(0);
+    const [last_name, setLast_name] = useState(0);
 
     const value = {
         isLogged,

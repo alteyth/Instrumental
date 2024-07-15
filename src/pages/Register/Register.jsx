@@ -1,8 +1,12 @@
 import React from "react";
 import { useSession } from "../../context/SessionContext";
+import { useNavigate } from "react-router-dom";
+
 import styles from './Register.module.css'
+import * as api from '../../api'
 
 function Register(){
+    const navigate = useNavigate();
 
     const {
         isLogged,
@@ -18,7 +22,8 @@ function Register(){
         last_name,
         setLast_name} = useSession();
 
-    function handleSubmit(e) {
+
+    async function handleSubmit(e) {
         e.preventDefault();
 
         const formElements = e.target.elements;
@@ -29,18 +34,60 @@ function Register(){
         const inputFirst_name = formElements.first_name.value;
         const inputLast_name = formElements.last_name.value;
 
+        const emailCheck = [];
+
         if(inputPassword !== inputConfirmPassword){
             alert("Passwords don't match!");
             return;
         }
 
+        const data = {
+            email: inputEmail,
+            password: inputPassword,
+            first_name: inputFirst_name,
+            last_name: inputLast_name
+        };
+
+        try{
+            const checkData = await api.get();
+            for(let i = 0; i < checkData.length; i++){
+                emailCheck.push(checkData[i].email);
+            }
+        }catch(error){
+            console.error('Error while trying to pull data');
+            return;
+        }
+
+        for(let i = 0; i < emailCheck.length; i++){
+            if(emailCheck[i] === inputEmail){
+                alert("This email address is already registered");
+                return;
+            }
+        }
+
+        
+        try{
+            const response = await api.post(data);
+            setUserID(response[0].id);
+            setIsLogged(true);
+        }catch(error){
+            console.error('Registration failed', error);
+        }     
+
         setPassword(inputPassword);
         setEmail(inputEmail);
         setFirst_name(inputFirst_name);
         setLast_name(inputLast_name);
-
-        
     };
+
+    // Every time that isLogged changes, this useEffect will run and print the value of isLogged
+    React.useEffect(() => {
+        console.log("/**** isLogged has been logged into useEffect")
+        console.log(isLogged);
+        if(isLogged){
+            navigate('/');
+        }
+    }, [isLogged]);
 
     return(
         <>
@@ -69,7 +116,13 @@ function Register(){
                     <button type="submit">Register</button>
                 </form>
             </div>
-            <h1>{password}</h1>
+            <h1>{first_name}</h1>
+            <br />
+            <h1>{last_name}</h1>
+            <br />
+            <h1>{userId}</h1>
+            <br />
+            <h1>isLogged: {isLogged}</h1>
         </>
     );
 }
