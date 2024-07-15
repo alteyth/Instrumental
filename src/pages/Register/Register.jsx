@@ -1,6 +1,6 @@
 import React from "react";
 import { useSession } from "../../context/SessionContext";
-import'./Register.module.css'
+import styles from './Register.module.css'
 
 function Register(){
 
@@ -29,42 +29,47 @@ function Register(){
         const inputFirst_name = formElements.first_name.value;
         const inputLast_name = formElements.last_name.value;
 
-        setEmail(inputEmail);
+        if(inputPassword !== inputConfirmPassword){
+            alert("Passwords don't match!");
+            return;
+        }
+
         setPassword(inputPassword);
+        setEmail(inputEmail);
         setFirst_name(inputFirst_name);
         setLast_name(inputLast_name);
+
+        
     };
 
     return(
         <>
-            <form onSubmit={handleSubmit}>
-                <div>
-                    <label htmlFor="first_name"> First name: </label>
-                    <input type="text" name="first_name" id="first_name" required />
-                </div>
+            <div className={styles.layout}>
+                <form onSubmit={handleSubmit}>
+                    <div>
+                        <input type="text" placeholder="First Name" name="first_name" id="first_name" required />
+                    </div>
 
-                <div>
-                    <label htmlFor="second_name"> Last name: </label>
-                    <input type="text" name="last_name" id="last_name" required />
-                </div>
+                    <div>
+                        <input type="text" placeholder="Last Name" name="last_name" id="last_name" required />
+                    </div>
 
-                <div>
-                    <label htmlFor="email"> Email address: </label>
-                    <input type="text" name="email" id="email" required />
-                </div>
-                
-                <div>
-                    <label htmlFor="password"> Password: </label>
-                    <input type="text" name="password" id="password" required />
-                </div>
+                    <div>
+                        <input type="text" placeholder="Email address" name="email" id="email" required />
+                    </div>
+                    
+                    <div>
+                        <input type="password" placeholder="Password" name="password" id="password" required />
+                    </div>
 
-                <div>
-                    <label htmlFor="passwordConfirm"> Confirm Password: </label>
-                    <input type="text" name="passwordConfirm" id="passwordConfirm" required />
-                </div>
+                    <div>
+                        <input type="password" placeholder="Confirm Password" name="passwordConfirm" id="passwordConfirm" required />
+                    </div>
 
-                <button type="submit">Submit</button>
-            </form>
+                    <button type="submit">Register</button>
+                </form>
+            </div>
+            <h1>{password}</h1>
         </>
     );
 }

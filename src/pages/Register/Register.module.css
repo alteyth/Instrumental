@@ -1,2 +1,10 @@
-
+.layout {
+    align-self:  center;
+    border: 2px solid blue;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 66%;
+    margin: auto;
+}
 

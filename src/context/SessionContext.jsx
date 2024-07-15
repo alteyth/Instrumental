@@ -9,7 +9,7 @@ export function useSession(){
 export function SessionProvider(props){
     const [isLogged, setIsLogged] = useState(false);
     const [userId, setUserID] = useState(null);
-    const [email, setEmail] = useState('tesaat');
+    const [email, setEmail] = useState(null);
     const [password, setPassword] = useState(null);
     const [first_name, setFirst_name] = useState(null);
     const [last_name, setLast_name] = useState(null);
