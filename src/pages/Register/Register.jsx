@@ -6,6 +6,7 @@ import styles from './Register.module.css'
 import * as api from '../../api'
 
 function Register(){
+    
     const navigate = useNavigate();
 
     const {
@@ -82,8 +83,6 @@ function Register(){
 
     // Every time that isLogged changes, this useEffect will run and print the value of isLogged
     React.useEffect(() => {
-        console.log("/**** isLogged has been logged into useEffect")
-        console.log(isLogged);
         if(isLogged){
             navigate('/');
         }
@@ -91,38 +90,34 @@ function Register(){
 
     return(
         <>
+        <div className={styles.pageLayout}>
+            <h1>Register</h1>
             <div className={styles.layout}>
-                <form onSubmit={handleSubmit}>
-                    <div>
-                        <input type="text" placeholder="First Name" name="first_name" id="first_name" required />
-                    </div>
+                    <form onSubmit={handleSubmit} className={styles.registerForm}>
+                        <div>
+                            <input type="text" placeholder="First Name" name="first_name" id="first_name" required />
+                        </div>
 
-                    <div>
-                        <input type="text" placeholder="Last Name" name="last_name" id="last_name" required />
-                    </div>
+                        <div>
+                            <input type="text" placeholder="Last Name" name="last_name" id="last_name" required />
+                        </div>
 
-                    <div>
-                        <input type="text" placeholder="Email address" name="email" id="email" required />
-                    </div>
-                    
-                    <div>
-                        <input type="password" placeholder="Password" name="password" id="password" required />
-                    </div>
+                        <div>
+                            <input type="text" placeholder="Email address" name="email" id="email" required />
+                        </div>
+                        
+                        <div>
+                            <input type="password" placeholder="Password" name="password" id="password" required />
+                        </div>
 
-                    <div>
-                        <input type="password" placeholder="Confirm Password" name="passwordConfirm" id="passwordConfirm" required />
-                    </div>
+                        <div>
+                            <input type="password" placeholder="Confirm Password" name="passwordConfirm" id="passwordConfirm" required />
+                        </div>
 
-                    <button type="submit">Register</button>
-                </form>
-            </div>
-            <h1>{first_name}</h1>
-            <br />
-            <h1>{last_name}</h1>
-            <br />
-            <h1>{userId}</h1>
-            <br />
-            <h1>isLogged: {isLogged}</h1>
+                        <button type="submit">Register</button>
+                    </form>
+                </div>
+        </div>
         </>
     );
 }

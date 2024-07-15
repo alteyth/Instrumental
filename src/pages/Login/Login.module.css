@@ -33,7 +33,7 @@ input {
     border-width: 1px;
 }
 
-.registerForm{
+.loginForm{
     border: solid 1px #555;
     border-radius: 8px;
     display: flex;
@@ -43,7 +43,7 @@ input {
     min-width: 66%;
 }
 
-.registerForm button{
+.loginForm button{
     cursor: pointer;
     background-color: black;
     border-radius: 8px;

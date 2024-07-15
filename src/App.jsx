@@ -8,6 +8,7 @@ import About from "./pages/About/About";
 import Cart from './pages/Cart/Cart';
 import Register from './pages/Register/Register';
 import { SessionProvider } from "./context/SessionContext";
+import Login from "./pages/Login/Login";
 
 function App() {
     return (
@@ -21,6 +22,7 @@ function App() {
                             <Route path="/about" element={<About />}/>
                             <Route path="/cart" element={<Cart />}/>
                             <Route path="/register" element={<Register />} />
+                            <Route path="/login" element={<Login />} />
                         </Routes>
                     </div>
                     <Footer />
