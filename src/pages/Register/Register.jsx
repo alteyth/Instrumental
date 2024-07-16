@@ -1,7 +1,6 @@
 import React from "react";
 import { useSession } from "../../context/SessionContext";
 import { useNavigate } from "react-router-dom";
-
 import styles from './Register.module.css'
 import * as api from '../../api'
 

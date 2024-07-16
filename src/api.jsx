@@ -25,6 +25,15 @@ export async function get(user=""){
     return fetchWrapper(url, options);
 }
 
+export async function getProducts(product=""){
+    const url = `${BASE_URL}/products/${product}`;
+    const options = {
+        method: 'GET',
+        headers: { 'Content-Type': 'application/json' }
+    };
+    return fetchWrapper(url, options);
+}
+
 export async function post(data){
     const url = `${BASE_URL}${USERS_URL}`;
     const options = {

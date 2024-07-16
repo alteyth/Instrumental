@@ -10,11 +10,17 @@ const connectionString = process.env.DATABASE_URL;
 const sql = postgres(connectionString);
 
 app.get('/api/users', async (req, res) => {
-    const result = await sql`
-    SELECT id, email, password
-    FROM users`;
+    try{
+        const result = await sql`
+        SELECT id, email, password
+        FROM users`;
 
-    res.json(result).status(200);
+        res.json(result).status(200);
+    }
+    catch(error){
+        console.error('Error in data retrieval', error);
+        res.status(500).json({error: 'Error in data retrieval'});
+    }
 });
 
 app.get('/api/users/:id', async (req, res) => {
@@ -32,6 +38,44 @@ app.get('/api/users/:id', async (req, res) => {
         res.status(200).json(result);
         return;
     }catch(error){
+        console.error('Error in data retrieval', error);
+        res.status(500).json({error: 'Error in data retrieval'});
+    }
+});
+
+app.get('/api/products', async (req, res) => {
+    try{
+        const result = await sql`
+        SELECT id, name, price, created_at, image_src
+        FROM products`;
+
+        if(result.length === 0){
+            res.status(404).json({error: 'No products found'});
+            return;
+        }
+        res.status(200).json(result);
+    }
+    catch(error){
+        console.error('Error in data retrieval', error);
+        res.status(500).json({error: 'Error in data retrieval'});
+    }
+});
+
+app.get('/api/products/:id', async (req, res) => {
+    const productId = req.params.id;
+    try{
+        const result = await sql`
+        SELECT id, name, price, created_at
+        FROM products
+        WHERE id = ${productId}`;
+
+        if(result.length === 0){
+            res.status(404).json({error: 'No products found'});
+            return;
+        }
+        res.status(200).json(result);
+    }
+    catch(error){
         console.error('Error in data retrieval', error);
         res.status(500).json({error: 'Error in data retrieval'});
     }

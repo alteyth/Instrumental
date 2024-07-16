@@ -1,5 +1,9 @@
+import React from "react";
+import { useSession } from "../../context/SessionContext";
+
 function Cart(){
-    return <h1>ciao</h1>
+    const { cart, setCart } = useSession();
+    return <h1>{cart[0].name}</h1>
 }
 
 export default Cart;
