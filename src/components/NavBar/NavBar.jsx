@@ -9,10 +9,11 @@ import { useNavigate } from "react-router-dom";
 
 function NavBar() {
     const navigate = useNavigate();
-    const { isLogged, setIsLogged } = useSession();
+    const { isLogged, setIsLogged, cart, setCart } = useSession();
 
     function logout(){
         setIsLogged(false);
+        setCart([]);
     }
 
     useEffect(() => {
@@ -42,15 +43,29 @@ function NavBar() {
 
                 <SearchBar />
                     <div className={styles.buttons}>
-                        <Link to="/cart" className={styles.icon}>
-                            <ShoppingCart size={20} />
-                        </Link>
                         {
-                        isLogged ?
+                            (isLogged && cart[0] !== undefined) ?
+                        <>
+                            <Link to="/cart" className={styles.icon}>
+                            <ShoppingCart size={20} />
+                            </Link>
+                        </>
+                        :
+                        <>
+                            <Link to="/" className={styles.icon}>
+                            <ShoppingCart size={20} />
+                            </Link>
+                        </>
+
+                        }
+
+                        {
+                            isLogged ?
                         <>
                             <Link to="/personalarea"> Personal Area </Link>
                             <Link onClick={() => logout()}> Logout </Link>
-                        </> :
+                        </> 
+                        :
                         <>
                             
                             <Link to="/register"> Register </Link>

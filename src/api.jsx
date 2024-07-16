@@ -34,6 +34,25 @@ export async function getProducts(product=""){
     return fetchWrapper(url, options);
 }
 
+export async function getOrders(){
+    const url = `${BASE_URL}/order`;
+    const options = {
+        method: 'GET',
+        headers: { 'Content-Type': 'application/json'}
+    };
+    return fetchWrapper(url, options);
+}
+
+export async function postOrder(data){
+    const url = `${BASE_URL}/order`;
+    const options = {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data)
+    };
+    return fetchWrapper(url, options);
+}
+
 export async function post(data){
     const url = `${BASE_URL}${USERS_URL}`;
     const options = {

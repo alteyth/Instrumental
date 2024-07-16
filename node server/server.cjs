@@ -81,6 +81,43 @@ app.get('/api/products/:id', async (req, res) => {
     }
 });
 
+app.get('/api/order', async (req, res) =>{
+    try{
+        const result = await sql`
+        SELECT *
+        FROM orders`;
+        if(result.length === 0){
+            res.status(404).json({error: 'No orders found'});
+            return;
+        }
+        res.status(200).json(result);
+    }catch(error){
+        console.error('Error in data retrieval', error);
+        res.status(500).json({error: 'Error in data retrieval'});
+    }
+})
+
+app.post('/api/order', async (req, res) =>{
+    const { by_user, items, total_price } = req.body;
+
+    if(!by_user || !items || !total_price){
+        res.status(400).json({error: 'All data is required'});     
+        return; 
+    }
+
+    try{
+        const result = await sql`
+        INSERT INTO orders (by_user, items, total_price)
+        VALUES (${by_user}, ${items}, ${total_price})
+        RETURNING *`;
+        res.status(201).json(result);
+        return;
+    }catch(error){
+        console.error('Error in data insertion', error);
+        res.status(500).json({error: error['routine']});
+    }
+})
+
 app.post('/api/users', async (req, res) => {
     const { email, password, first_name, last_name } = req.body;
 

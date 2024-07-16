@@ -9,6 +9,7 @@ import Cart from './pages/Cart/Cart';
 import Register from './pages/Register/Register';
 import { SessionProvider } from "./context/SessionContext";
 import Login from "./pages/Login/Login";
+import './app.css'
 
 function App() {
     return (
