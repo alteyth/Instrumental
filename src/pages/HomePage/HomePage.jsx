@@ -26,6 +26,7 @@ function HomePage() {
   
     const [loading, setLoading] = useState(true);
 
+  // Ogni volta che viene inserito un nuovo termine di ricerca la pagina va renderizzata
   React.useEffect(() => {
     const fetchData = async() => {
       try{
@@ -34,6 +35,7 @@ function HomePage() {
       }catch(error){
           console.error('Error while trying to pull data');
           return;
+      // Questo check è necessario per evitare che la pagina cerchi di accedere a componenti da renderizzare vuoti
       }finally{
         setLoading(false);
       }

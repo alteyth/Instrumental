@@ -31,7 +31,8 @@ function PersonalArea(){
     
     const [loading, setLoading] = useState(true);
     const [hasOrders, setHasOrders] = useState(false);
-
+    
+    // Handling dei dati pullati dal DB per l'area personale e lo storico ordini
     React.useEffect(() => {
         const fetchData = async() => {
             try{

@@ -7,6 +7,7 @@ function CartProduct(props){
     const { cart, setCart } = useSession();
     const { id, name, price, image_src, created_at } = props.data;
 
+    // Questa funzione gestiscec l'eliminazione degli item dal carrello, viene triggerata quando l'utente preme il tasto corrispondente
     function removeProduct(item){
             for(let i = 0; i < cart.length; i++){
                 if(cart[i].name == name){

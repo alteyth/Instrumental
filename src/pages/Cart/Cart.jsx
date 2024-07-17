@@ -35,6 +35,7 @@ function Cart(){
         return names;
     }
 
+    // Ogni volta che l'utente effettua il checkout viene creato un nuovo ordine sul DB che poi viene mostrato nell'area personale
     async function handleCheckout(e){
         e.preventDefault();
         const items = cartItemNames();
@@ -54,6 +55,7 @@ function Cart(){
         }
     }
 
+    // La pagina viene renderizzata ogni volta che un oggetto viene aggiunto o rimosso dal carrello. Se il carrello è vuoto si torna in home
     useEffect(() => {
         if(cart.length === 0){
             navigate('/');

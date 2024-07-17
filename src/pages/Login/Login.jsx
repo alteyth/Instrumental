@@ -23,6 +23,7 @@ function Login(){
         last_name,
         setLast_name} = useSession();
 
+    // Quando l'utente tenta di effettuare il login viene controllato che la mail esista nel DB e che la combinazione sia corretta
     async function handleSubmit(e){
         e.preventDefault();
 
@@ -60,7 +61,7 @@ function Login(){
         }
     };
 
-    // Every time that isLogged changes, this useEffect will run and print the value of isLogged
+    // Ogni volta che isLogged cambia questa funzione viene chiamata. Torna in home al logout
     React.useEffect(() => {
         if(isLogged){
             navigate('/');

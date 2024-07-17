@@ -12,7 +12,6 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    min-width: 45%;
     padding: 12px;
     border: solid 2px black;
     border-radius: 14px;
@@ -23,7 +22,6 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    min-width: 45%;
     padding: 12px;
     border: solid 2px black;
     border-radius: 14px;

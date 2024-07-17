@@ -80,7 +80,7 @@ function Register(){
         setLast_name(inputLast_name);
     };
 
-    // Every time that isLogged changes, this useEffect will run and print the value of isLogged
+    // // Ogni volta che isLogged cambia questa funzione viene chiamata. Torna in home al logout
     React.useEffect(() => {
         if(isLogged){
             navigate('/');

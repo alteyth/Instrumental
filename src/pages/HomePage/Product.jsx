@@ -8,6 +8,7 @@ function Product(props){
 
     const {id, name, price, image_src, created_at} = props.data;
 
+    // Il carrello è uno stato che viene aggiornato di volta in volta premendo il tasto apposito
     function addToCart(item){
         setCart(prevCartState => [...prevCartState, item]);
     }

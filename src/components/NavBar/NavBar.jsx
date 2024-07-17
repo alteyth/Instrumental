@@ -16,6 +16,7 @@ function NavBar() {
         setCart([]);
     }
 
+    // Se l'utente effettua il logout viene riportato alla home
     useEffect(() => {
         if(!isLogged){
             navigate("/");

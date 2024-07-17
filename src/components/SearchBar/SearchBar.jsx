@@ -5,6 +5,7 @@ import { useSession } from "../../context/SessionContext";
 function SearchBar() {
     const {setSearchTerm} = useSession();
 
+    // Lo stato searchTerm fa in modo che la home page venga ricaricata per mostrare solo i prodotti inerenti
     function search(e){
         e.preventDefault();
         const formElement = e.target.elements;

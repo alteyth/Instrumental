@@ -18,6 +18,8 @@ export function SessionProvider(props){
     const [first_name, setFirst_name] = useState(0);
     const [last_name, setLast_name] = useState(0);
 
+
+    // Tutti questi stati sono disponibili in tutta l'app così da tenerne conto sempre nel sito
     const value = {
         orders,
         setOrders,
