@@ -72,7 +72,7 @@ function NavBar() {
                             <Link to="/login"> Login </Link>
                         </>
                     }
-                </div>
+                    </div>
             </header>
         </>
     );

@@ -1,84 +1,119 @@
 html,
-header,
-body {
-    font-family: "Roboto";
+body,
+header {
+    font-family: "Roboto", sans-serif;
     padding: 0;
     margin: 0;
 }
 
-.logo {
-    padding: 16px 25px;
-    align-self: center;
-    /* border: 2px solid red; */
-}
-
 .header {
+
     display: flex;
     justify-content: space-between;
+    align-items: center;
     background-color: black;
-    gap: 2rem;
     padding: 0 1rem;
-    /* border: 2px solid blue; */
+    flex-wrap: wrap;
+}
+
+.logo {
+    
+    height: auto;
+    align-self: center;
 }
 
 .menu {
     display: flex;
-    justify-content: space-between;
-    /* border: 2px solid blue; */
-    align-self: center;
+    justify-content: center;
+    align-items: center;
 }
 
 .menu ul {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    /* border: 1px solid pink; */
     list-style-type: none;
     padding: 0;
     margin: 0;
 }
 
 .menu a {
-    /* border: 2px solid blue; */
-    display: flex;
-    align-items: stretch;
     text-decoration: none;
-    height: 100%;
     padding: 18.5px 3rem;
     font-size: 22px;
     color: white;
 }
 
-.menu li {
+.menu ul li {
+    display: flex;
     transition: 0.13s;
 }
 
 .menu li:hover {
     background-color: #222;
     transition: 0.16s;
-    align-self: center;
 }
 
 .buttons {
-    align-self: center;
-}
-
-.buttons a:hover {
-    background-color: #222;
-    transition: 0.16s;
-    padding-bottom: 18px;
+    display: flex;
+    align-items: center;
 }
 
 .buttons a {
+    display: flex;
     transition: 0.13s;
     text-decoration: none;
-    padding: 21px 2rem;
+    padding: 21px 1rem;
     color: white;
     font-size: 22px;
 }
 
+.buttons a:hover {
+    background-color: #222;
+}
+
 .buttons .icon {
+    display: flex;
     vertical-align: middle;
-    padding-top: 100%;
-    padding-bottom: 1rem;
+}
+
+/* Media query for tablets */
+@media (max-width: 768px) {
+    .menu a {
+        padding: 18.5px 1rem;
+        font-size: 18px;
+    }
+    .buttons a {
+        padding: 21px 1rem;
+        font-size: 18px;
+    }
+
+}
+
+/* Media query for mobile devices */
+@media (max-width: 480px) {
+    .header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .menu {
+        width: 100%;
+        justify-content: flex-start;
+    }
+    .menu ul {
+        
+        width: 100%;
+    }
+    .menu a {
+        width: 100%;
+        padding: 10px 1rem;
+        font-size: 16px;
+    }
+    .buttons {
+        width: 100%;
+        justify-content: space-between;
+    }
+    .buttons a {
+        padding: 10px 1rem;
+        font-size: 16px;
+    }
+
 }

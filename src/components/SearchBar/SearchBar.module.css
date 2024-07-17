@@ -1,23 +1,15 @@
-html,
-header,
-body {
-    font-family: "Roboto";
-    padding: 0;
-    margin: 0;
-}
-
-.searchForm{
-    align-self: center;
-    width: 550px;
+.searchForm {
     display: flex;
     align-content: center;
-    padding: 0;
-    margin: 0;
+    align-items: center;
+    width: 100%;
+    max-width: 500px;
+    margin: 0 1rem;
 }
 
-.searchbar{
+.searchbar {
+    
     width: 100%;
-    align-self: center;
     padding: 3px;
     height: 2rem;
     font-size: 16px;
@@ -27,4 +19,25 @@ body {
 
 .searchbar::placeholder {
     text-indent: 8px;
+}
+
+/* Media query for tablets */
+@media (max-width: 768px) {
+
+    .searchForm {
+        max-width: 400px;
+    }
+}
+
+/* Media query for mobile devices */
+@media (max-width: 480px) {
+
+    .searchForm {
+        max-width: 300px;
+        margin: 0.5rem 0;
+    }
+    .searchbar {
+        height: 1.5rem;
+        font-size: 14px;
+    }
 }
