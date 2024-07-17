@@ -7,6 +7,7 @@ import Footer from "./components/Footer/Footer";
 import About from "./pages/About/About";
 import Cart from './pages/Cart/Cart';
 import Register from './pages/Register/Register';
+import PersonalArea from "./pages/PersonalArea/PersonalArea";
 import { SessionProvider } from "./context/SessionContext";
 import Login from "./pages/Login/Login";
 import './app.css'
@@ -24,6 +25,7 @@ function App() {
                             <Route path="/cart" element={<Cart />}/>
                             <Route path="/register" element={<Register />} />
                             <Route path="/login" element={<Login />} />
+                            <Route path="/personalarea" element={<PersonalArea />} />
                         </Routes>
                     </div>
                     <Footer />

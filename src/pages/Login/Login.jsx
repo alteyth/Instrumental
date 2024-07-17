@@ -35,7 +35,7 @@ function Login(){
 
         try{
             const checkData = await api.get();
-            var tempUser;
+            let tempUser;
 
             for(let i = 0; i < checkData.length; i++){
                 if(inputEmail === checkData[i].email){

@@ -7,6 +7,8 @@ export function useSession(){
 }
 
 export function SessionProvider(props){
+    const [searchTerm, setSearchTerm] = useState("");
+    const [orders, setOrders] = useState(null);
     const [products, setProducts] = useState(null)
     const [cart, setCart] = useState([]);
     const [isLogged, setIsLogged] = useState(false);
@@ -17,6 +19,10 @@ export function SessionProvider(props){
     const [last_name, setLast_name] = useState(0);
 
     const value = {
+        orders,
+        setOrders,
+        searchTerm,
+        setSearchTerm,
         products,
         setProducts,
         cart,

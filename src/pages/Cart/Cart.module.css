@@ -7,7 +7,7 @@
 
 .checkoutBttn{
     font-size: 18px;
-    transition: 0.13s;
+    transition: 0.1s;
     border: 2px solid black;
     margin-bottom: 4px;
     transition: 0.13s;
@@ -25,7 +25,7 @@
     cursor: pointer;
     color: black;
     background-color: white;
-    transition: 0.1s;
+    transition: 0.13s;
 }
 
 .totalText{

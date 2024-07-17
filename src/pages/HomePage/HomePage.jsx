@@ -7,6 +7,8 @@ import Product from "./Product";
 function HomePage() {
 
   const {
+    searchTerm,
+    setSearchTerm,
     products,
     setProducts,
     isLogged,
@@ -37,7 +39,7 @@ function HomePage() {
       }
     }
     fetchData();
-  }, []);
+  }, [searchTerm]);
 
 
   return(
@@ -47,7 +49,9 @@ function HomePage() {
         {
         loading ? (
           <></>
-        ) : (
+        ) 
+        :
+        (
           products && products.length > 0 ? (
             <>
               {products.map((product) => (

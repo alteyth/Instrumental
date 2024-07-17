@@ -7,7 +7,6 @@ async function fetchWrapper(url, options){
         if(!response.ok){
             const error = await response.json();
             throw new Error(error.message || 'Something went wrong');
-
         }
         return await response.json();
     }catch(error){
@@ -34,8 +33,8 @@ export async function getProducts(product=""){
     return fetchWrapper(url, options);
 }
 
-export async function getOrders(){
-    const url = `${BASE_URL}/order`;
+export async function getOrders(order=""){
+    const url = `${BASE_URL}/order/${order}`;
     const options = {
         method: 'GET',
         headers: { 'Content-Type': 'application/json'}

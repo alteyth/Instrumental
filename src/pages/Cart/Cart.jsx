@@ -24,7 +24,13 @@ function Cart(){
     function cartItemNames(){
         let names = "";
         for(let i = 0; i < cart.length; i++){
-            names = names.concat(", ", cart[i].name);
+            if(i === 0){
+                names = names.concat(cart[i].name);
+            }
+            else{
+                names = names.concat(", ", cart[i].name);
+            }
+            
         }
         return names;
     }
@@ -58,6 +64,7 @@ function Cart(){
         <>
         <div>
             <div className={styles.products}>
+                <h1>Shopping cart</h1>
                 {
                     isLogged ?
                     <>

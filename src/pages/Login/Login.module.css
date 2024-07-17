@@ -20,7 +20,7 @@ body {
     justify-content: center;
     align-items: center;
     max-width: 66%;
-    margin: 8rem auto;
+    margin: 2rem auto;
     min-height: 16rem;
 }
 
@@ -44,13 +44,27 @@ input {
 }
 
 .loginForm button{
+    transition: 0.1s;
+    border: 2px solid black;
     cursor: pointer;
     background-color: black;
     border-radius: 8px;
-    border-width: 0px;
     font-family: 'Roboto';
     color: white;
     font-size: 16px;
     padding: 12px 24px;
     margin: 16px 16px ;
 }
+
+.loginForm button:hover{
+    transition: 0.13s;
+    cursor: pointer;
+    color: black;
+    background-color: white;
+    border-radius: 8px;
+    font-family: 'Roboto';
+    font-size: 16px;
+    padding: 12px 24px;
+    margin: 16px 16px ;
+}
+

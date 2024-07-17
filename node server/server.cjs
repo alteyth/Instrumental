@@ -97,6 +97,20 @@ app.get('/api/order', async (req, res) =>{
     }
 })
 
+app.get('/api/order/:user', async (req, res) =>{
+    const userId = req.params.user;
+    try{
+        const result = await sql`
+        SELECT *
+        FROM orders
+        WHERE by_user = ${userId}`;
+        res.status(200).json(result);
+    }catch(error){
+        console.error('Error in data retrieval', error);
+        res.status(500).json({error: 'Error in data retrieval'});
+    }
+})
+
 app.post('/api/order', async (req, res) =>{
     const { by_user, items, total_price } = req.body;
 

@@ -11,7 +11,7 @@
 .addToCartBttn{
     border: 2px solid black;
     margin-bottom: 8px;
-    transition: 0.13s;
+    transition: 0.1s;
     background-color: black;
     color: white;
     min-width: 100px;
@@ -23,7 +23,7 @@
 }
 
 .addToCartBttn:hover {
-    transition: 0.1s;
+    transition: 0.13s;
     background-color: white;
     color: black;
     cursor: pointer;

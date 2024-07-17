@@ -6,17 +6,22 @@ body {
     margin: 0;
 }
 
-.searchbar {
+.searchForm{
     align-self: center;
+    width: 550px;
+    display: flex;
+    align-content: center;
     padding: 0;
-    height: 2rem;
-    flex-grow: 1;
-    font-size: 16px;
-    border-radius: 8px;
+    margin: 0;
 }
 
-.searchbar {
-    padding: 2px;
+.searchbar{
+    width: 100%;
+    align-self: center;
+    padding: 3px;
+    height: 2rem;
+    font-size: 16px;
+    border-radius: 8px;
     text-indent: 8px;
 }
 

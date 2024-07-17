@@ -1,0 +1,40 @@
+.orders{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 14px;
+}
+
+.order{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-width: 100%;
+}
+
+.labels{
+    display: flex;
+    justify-content: center;
+
+}
+
+.labels h1{
+    margin-bottom: 2px;
+    font-size: 24px;
+    padding-left: 5.3rem;
+    padding-right: 5.3rem;
+}
+
+.values{
+    display: flex;
+    justify-content: center;
+}
+
+.values p{
+    margin-top: 2px;
+    font-size: 20px;
+    padding-left: 3rem;
+    padding-right: 3rem;
+}

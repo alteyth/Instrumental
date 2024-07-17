@@ -20,8 +20,12 @@ body {
     justify-content: center;
     align-items: center;
     max-width: 66%;
-    margin: 8rem auto;
+    margin: 1rem auto;
     min-height: 16rem;
+}
+
+.layout h1{
+    margin: 0;
 }
 
 input {
@@ -44,12 +48,25 @@ input {
 }
 
 .registerForm button{
+    transition: 0.1s;
     cursor: pointer;
+    border: solid 2px black;
     background-color: black;
     border-radius: 8px;
-    border-width: 0px;
     font-family: 'Roboto';
     color: white;
+    font-size: 16px;
+    padding: 12px 24px;
+    margin: 16px 16px ;
+}
+
+.registerForm button:hover{
+    transition: 0.13s;
+    cursor: pointer;
+    background-color: white;
+    border-radius: 8px;
+    font-family: 'Roboto';
+    color: black;
     font-size: 16px;
     padding: 12px 24px;
     margin: 16px 16px ;
