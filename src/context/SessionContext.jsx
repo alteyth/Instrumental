@@ -12,6 +12,7 @@ export function SessionProvider(props){
     const [products, setProducts] = useState(null)
     const [cart, setCart] = useState([]);
     const [isLogged, setIsLogged] = useState(false);
+    const [isAdmin, setIsAdmin] = useState(false);
     const [userId, setUserID] = useState(0);
     const [email, setEmail] = useState(0);
     const [password, setPassword] = useState(0);
@@ -31,6 +32,8 @@ export function SessionProvider(props){
         setCart,
         isLogged,
         setIsLogged,
+        isAdmin,
+        setIsAdmin,
         userId,
         setUserID,
         email,

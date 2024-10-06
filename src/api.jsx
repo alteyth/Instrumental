@@ -24,6 +24,7 @@ export async function get(user=""){
     return fetchWrapper(url, options);
 }
 
+
 export async function getProducts(product=""){
     const url = `${BASE_URL}/products/${product}`;
     const options = {
@@ -33,11 +34,11 @@ export async function getProducts(product=""){
     return fetchWrapper(url, options);
 }
 
-export async function getOrders(order=""){
-    const url = `${BASE_URL}/order/${order}`;
+export async function getOrders() { // Modificato per non accettare parametri
+    const url = `${BASE_URL}/order`; // Cambia l'URL per ottenere tutti gli ordini
     const options = {
         method: 'GET',
-        headers: { 'Content-Type': 'application/json'}
+        headers: { 'Content-Type': 'application/json' }
     };
     return fetchWrapper(url, options);
 }
@@ -61,3 +62,4 @@ export async function post(data){
     };
     return fetchWrapper(url, options);
 }
+

@@ -11,6 +11,8 @@ function Login(){
 
     const {
         isLogged,
+        isAdmin,
+        setIsAdmin,
         setIsLogged,
         userId,
         setUserID,
@@ -43,14 +45,34 @@ function Login(){
                     tempUser = checkData[i];
                     break;
                 }
+
+            }
+
+            // Se non troviamo l'utente, mostriamo un messaggio di errore
+            if (!tempUser) {
                 alert('This Email address is not registered');
                 return;
             }
+
             if(inputPassword === tempUser.password){
                 setIsLogged(true);
                 setUserID(tempUser.id);
                 setPassword(tempUser.password);
+
+                // Se l'utente ha id = 1, è un admin
+                if (tempUser.id === "1") {
+                    setIsAdmin(true);
+                    console.log("User is admin, setting isAdmin to true");
+                    console.log("User ID:", tempUser.id); // Log dell'ID dell'utente
+                } else {
+                    setIsAdmin(false);
+                    console.log("User is not admin, setting isAdmin to false");
+                    console.log("User ID:", tempUser.id); // Log dell'ID dell'utente
+                }
+
+
                 return;
+                
                 
             }
             else{
@@ -69,6 +91,7 @@ function Login(){
     }, [isLogged]);
 
     return(
+        
         <>
         <div className={styles.pageLayout}>
             <h1>Login</h1>

@@ -11,6 +11,8 @@ function Register(){
     const {
         isLogged,
         setIsLogged,
+        isAdmin,
+        setIsAdmin,
         userId,
         setUserID,
         email,
@@ -21,6 +23,8 @@ function Register(){
         setFirst_name,
         last_name,
         setLast_name} = useSession();
+
+        
 
 
     async function handleSubmit(e) {
@@ -48,6 +52,8 @@ function Register(){
             last_name: inputLast_name
         };
 
+        //controlla se le l'email esiste già
+
         try{
             const checkData = await api.get();
             for(let i = 0; i < checkData.length; i++){
@@ -65,11 +71,19 @@ function Register(){
             }
         }
 
-        
+        //Registra il nuovo utente 
         try{
             const response = await api.post(data);
             setUserID(response[0].id);
             setIsLogged(true);
+
+             // Verifica se l'utente è admin
+             if(userId === 1) {
+                setIsAdmin(true); // Imposta lo stato admin a true
+                alert("Welcome Admin!");
+            }
+
+
         }catch(error){
             console.error('Registration failed', error);
         }     

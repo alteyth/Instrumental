@@ -1,0 +1,48 @@
+/* AdminDashboard.module.css */
+.adminDashboard {
+    display: flex;
+    height: 100vh; /* Usa l'altezza della viewport per il layout */
+}
+
+.sidebar {
+    border-right: solid rgb(192, 192, 192) 1px;
+    background-color: #f4f4f4; /* Colore di sfondo scuro */
+    color: rgb(0, 0, 0);
+    width: 250px; /* Larghezza fissa per la sidebar */
+}
+
+.h3 {
+    padding-left: 20px;
+}
+
+.sidebar h3 {
+    margin-bottom: 20px;
+}
+
+.sidebar ul {
+    list-style-type: none; /* Rimuovi i punti dall'elenco */
+    padding: 0;
+}
+
+.sidebar li {
+    margin: 10px 0; /* Spaziatura tra i link */
+}
+
+.link {
+    padding-left: 20px;
+    color: grey; /* Colore del testo dei link */
+    text-decoration: none; /* Rimuovi sottolineatura */
+    transition: color 0.3s; /* Transizione per il hover */
+}
+
+
+
+.link:hover {
+    color: black; /* Colore al passaggio del mouse */
+}
+
+.content {
+    flex-grow: 1; /* Occupa tutto lo spazio rimanente */
+    padding: 20px;
+    background-color: #f4f4f4; /* Colore di sfondo per il contenuto */
+}

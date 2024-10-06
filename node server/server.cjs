@@ -222,6 +222,25 @@ app.delete('/api/users/:id', async(req, res) => {
     }
 });
 
+app.get('/api/order', async (req, res) => {
+    try {
+        const result = await sql`
+        SELECT *
+        FROM orders`;
+        
+        if(result.length === 0){
+            res.status(404).json({error: 'No orders found'});
+            return;
+        }
+        res.status(200).json(result);
+    } catch (error) {
+        console.error('Error in data retrieval', error);
+        res.status(500).json({error: 'Error in data retrieval'});
+    }
+});
+
+
+
 app.listen(port, () => {
     console.log(`Server is running on port ${port}`)
 });
