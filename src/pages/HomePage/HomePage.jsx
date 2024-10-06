@@ -61,7 +61,7 @@ function HomePage() {
               ))}
             </>
           ) : (
-            <p>No products available</p>
+            <p>No products availablee</p>
           )
         )}
       </div>
