@@ -61,8 +61,7 @@ function NavBar() {
                 <div className={styles.buttons}>
                     {isAdminDashboard ? (
                         <>
-                            <Link to="/">Home</Link>
-                            <Link onClick={logout}> Logout </Link>
+
                         </>
                     ) : (
                         <>

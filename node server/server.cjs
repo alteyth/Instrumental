@@ -12,7 +12,7 @@ const sql = postgres(connectionString);
 app.get('/api/users', async (req, res) => {
     try{
         const result = await sql`
-        SELECT id, email, password
+        SELECT id, email, password, first_name, last_name
         FROM users`;
 
         res.json(result).status(200);

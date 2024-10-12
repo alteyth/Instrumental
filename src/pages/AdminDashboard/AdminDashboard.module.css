@@ -1,5 +1,6 @@
 /* AdminDashboard.module.css */
 .adminDashboard {
+    
     display: flex;
     height: 100vh; /* Usa l'altezza della viewport per il layout */
     background-color: #f4f4f4; /* Colore di sfondo per il contenuto */
@@ -69,6 +70,7 @@
 }
 
 .orderCount{
+    
     margin-top: 50px;
     margin-left: 30px;
     background-color: rgb(240, 214, 144);
@@ -81,10 +83,32 @@
     justify-content: center; /* Centra verticalmente il contenuto */
 }
 
+.customerCount{
+    margin-top: 50px;
+    margin-left: 30px;
+    background-color: rgb(155, 194, 216);
+    width: 300px; /* Larghezza del rettangolo */
+    height: 150px; /* Altezza del rettangolo */
+    padding: 20px; /* Padding interno */
+    box-shadow: 0 2px 40px rgba(0, 0, 0, 0.1); /* Ombra leggera per profondità */
+    display: flex; /* Flexbox per allineare il contenuto */
+    flex-direction: column; /* Direzione del layout del contenuto */
+    justify-content: center; /* Centra verticalmente il contenuto */
+
+}
+
 .priceNumber{
     font-size: 30px;
 }
 
 .h3Price{
     font-weight: 300;
+}
+
+.logoutButton {
+   
+    padding-left: 20px;
+    color: grey; /* Colore del testo dei link */
+    text-decoration: none; /* Rimuovi sottolineatura */
+    transition: color 0.3s; /* Transizione per il hover */
 }

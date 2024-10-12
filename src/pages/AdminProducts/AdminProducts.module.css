@@ -2,13 +2,21 @@
 .adminDashboard {
     display: flex;
     height: 100vh; /* Usa l'altezza della viewport per il layout */
+    background-color: #f4f4f4; /* Colore di sfondo per il contenuto */
+}
+
+.ul{
+    margin-top: 50px;
 }
 
 .sidebar {
+    position: sticky;
     border-right: solid rgb(192, 192, 192) 1px;
     background-color: #f4f4f4; /* Colore di sfondo scuro */
     color: rgb(0, 0, 0);
     width: 250px; /* Larghezza fissa per la sidebar */
+    padding: 0 1.7rem;
+    overflow: hidden;
 }
 
 .h3 {
@@ -22,10 +30,14 @@
 .sidebar ul {
     list-style-type: none; /* Rimuovi i punti dall'elenco */
     padding: 0;
+    position: relative;
+    height: 88%;
+
 }
 
 .sidebar li {
-    margin: 10px 0; /* Spaziatura tra i link */
+    padding: 1rem;
+    margin: 8px 0; /* Spaziatura tra i link */
 }
 
 .link {
@@ -35,14 +47,67 @@
     transition: color 0.3s; /* Transizione per il hover */
 }
 
-
-
 .link:hover {
     color: black; /* Colore al passaggio del mouse */
 }
 
-.content {
-    flex-grow: 1; /* Occupa tutto lo spazio rimanente */
-    padding: 20px;
-    background-color: #f4f4f4; /* Colore di sfondo per il contenuto */
+.titolo{
+    border: solid red;
+}
+
+.totalPrice{
+    margin-top: 50px;
+    margin-left: 30px;
+    background-color: rgb(186, 219, 186);
+    width: 300px; /* Larghezza del rettangolo */
+    height: 150px; /* Altezza del rettangolo */
+    padding: 20px; /* Padding interno */
+    box-shadow: 0 2px 40px rgba(0, 0, 0, 0.1); /* Ombra leggera per profondità */
+    display: flex; /* Flexbox per allineare il contenuto */
+    flex-direction: column; /* Direzione del layout del contenuto */
+    justify-content: center; /* Centra verticalmente il contenuto */
+}
+
+.orderCount{
+    
+    margin-top: 50px;
+    margin-left: 30px;
+    background-color: rgb(240, 214, 144);
+    width: 300px; /* Larghezza del rettangolo */
+    height: 150px; /* Altezza del rettangolo */
+    padding: 20px; /* Padding interno */
+    box-shadow: 0 2px 40px rgba(0, 0, 0, 0.1); /* Ombra leggera per profondità */
+    display: flex; /* Flexbox per allineare il contenuto */
+    flex-direction: column; /* Direzione del layout del contenuto */
+    justify-content: center; /* Centra verticalmente il contenuto */
+}
+
+.customerCount{
+    margin-top: 50px;
+    margin-left: 30px;
+    background-color: rgb(155, 194, 216);
+    width: 300px; /* Larghezza del rettangolo */
+    height: 150px; /* Altezza del rettangolo */
+    padding: 20px; /* Padding interno */
+    box-shadow: 0 2px 40px rgba(0, 0, 0, 0.1); /* Ombra leggera per profondità */
+    display: flex; /* Flexbox per allineare il contenuto */
+    flex-direction: column; /* Direzione del layout del contenuto */
+    justify-content: center; /* Centra verticalmente il contenuto */
+
+}
+
+.priceNumber{
+    font-size: 30px;
+}
+
+.h3Price{
+    font-weight: 300;
+}
+
+.logoutButton {
+   
+    padding-left: 20px;
+    color: grey; /* Colore del testo dei link */
+    text-decoration: none; /* Rimuovi sottolineatura */
+    transition: color 0.3s; /* Transizione per il hover */
 }
