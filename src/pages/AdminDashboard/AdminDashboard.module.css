@@ -1,9 +1,22 @@
 /* AdminDashboard.module.css */
-.adminDashboard {
-    
+.adminDashboard { 
     display: flex;
     height: 100vh; /* Usa l'altezza della viewport per il layout */
     background-color: #f4f4f4; /* Colore di sfondo per il contenuto */
+}
+
+
+.h1Dashboard{
+    margin-left: 20px;
+    display: flex;
+    width: 180vh;
+    flex-direction: column;
+
+}
+
+.boxesContainer{
+
+    display: flex;
 }
 
 .ul{
@@ -12,12 +25,13 @@
 
 .sidebar {
     position: sticky;
+
     border-right: solid rgb(192, 192, 192) 1px;
     background-color: #f4f4f4; /* Colore di sfondo scuro */
     color: rgb(0, 0, 0);
     width: 250px; /* Larghezza fissa per la sidebar */
     padding: 0 1.7rem;
-    overflow: hidden;
+    
 }
 
 .h3 {

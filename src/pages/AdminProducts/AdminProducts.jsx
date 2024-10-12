@@ -93,7 +93,7 @@ function AdminProducts() {
                     
                 </ul>
             </nav>
-            <h1>Products:</h1>
+            <h1 className={styles.h1Products}>Products</h1>
             </div>
             </div>
     );

@@ -88,13 +88,16 @@ function AdminCostumers() {
                     
                 </ul>
             </nav>
-            <h1> Customers:</h1>
+            <div className={styles.boxesContainer}>
+            <h1 className={styles.h1Customers}> Customers</h1>
+            <>
             <table className={styles.customerTable}>
                 <thead>
                     <tr>
                         <th className={styles.campi}>First Name</th>
                         <th className={styles.campi}>Last Name</th>
                         <th className={styles.campi}>Email</th>
+                        <th className={styles.campi}>Id</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -106,12 +109,14 @@ function AdminCostumers() {
                                     <td className={styles.customerContent}>
                                         {customer.first_name}
                                     </td>
-                                    <td className={styles.customerRow}>
+                                    <td className={styles.customerContent}>
                                         {customer.last_name}
                                     </td>
                                     <td className={styles.customerContent}>
                                         {customer.email}
                                     </td>
+                                    <td className={styles.customerContent}>   
+                                        {customer.id} </td>
                                 </tr>
                             ))
                     ) : (
@@ -121,6 +126,8 @@ function AdminCostumers() {
                     )}
                 </tbody>
             </table>
+            </>
+            </div>
             </div>
     </div>
     );

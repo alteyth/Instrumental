@@ -9,8 +9,22 @@
     margin-top: 50px;
 }
 
+
+.boxesContainer{
+    display: flex;
+    flex-direction: column;
+}
+
+.h1Customers{
+    margin-left: 20px;
+    display: flex;
+    width: 50vh;
+    flex-direction: column;
+}
+
+
 .sidebar {
-    border: solid red;
+   
     display: flex;
     position: sticky;
     border-right: solid rgb(192, 192, 192) 1px;
@@ -18,12 +32,13 @@
     color: rgb(0, 0, 0);
     width: 250px; /* Larghezza fissa per la sidebar */
     padding: 0 1.7rem;
-    overflow: hidden;
+    
 }
 
 .content {
-    flex: 1; /* Per occupare tutto lo spazio rimanente */
-    padding: 20px; /* Aggiungere un po' di padding */
+    
+    flex: 1; 
+    padding: 20px; 
 
 }
 
@@ -56,7 +71,7 @@
 }
 
 .link:hover {
-    color: black; /* Colore al passaggio del mouse */
+    color: black; 
 }
 
 .h3Price{
@@ -64,38 +79,40 @@
 }
 
 .logoutButton {
-   
+
     padding-left: 20px;
-    color: grey; /* Colore del testo dei link */
-    text-decoration: none; /* Rimuovi sottolineatura */
-    transition: color 0.3s; /* Transizione per il hover */
+    color: grey; 
+    text-decoration: none; 
+    transition: color 0.3s; 
 }
 
 /* AdminDashboard.module.css */
 .customerTable {
-    width: 70%; /* Imposta la larghezza della tabella per adattarsi al contenitore */
-    border-collapse: collapse; /* Elimina gli spazi tra i bordi delle celle */
-    margin: 100px;
+    
+    width: 100vh; 
+    height: 50%;
+    border-collapse: collapse; 
+    margin: 80px;
 }
 
 .customerTable th,
 .customerTable td {
-    padding: 0px 15px; /* Spaziatura all'interno delle celle */
-    border-bottom: 1px solid #ddd; /* Solo bordo inferiore per separare le righe */
-    text-align: left; /* Allinea il testo a sinistra */
+    padding: 0px 15px; 
+    border-bottom: 1px solid #ddd; 
+    text-align: left; 
 }
 
 .customerTable th {
-    background-color: #f4f4f4; /* Colore di sfondo per l'intestazione della tabella */
+    background-color: #f4f4f4; 
     font-weight: bold;
 }
 
 .customerTable tr:last-child td {
-    border-bottom: none; /* Rimuovi il bordo inferiore dell'ultima riga */
+    border-bottom: none; 
 }
 
 .customerContent {
-    color: #333; /* Colore del testo nelle celle */
+    color: #333; 
 }
 
 .campi {

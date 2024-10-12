@@ -94,9 +94,10 @@ function AdminDashboard() {
                     
                 </ul>
             </nav>
-            <div>
+            <div  className={styles.h1Dashboard}>
             <h1>Dashboard</h1>
-            </div>
+            
+            <div className={styles.boxesContainer}>
             <div className={styles.totalPrice}>                    
                 <p className={styles.priceNumber}>{totalPrice.toFixed(2)}€</p> {/* Mostra il total_price formattato */}
                 <i className="fa-solid fa-money-bills"></i>
@@ -115,7 +116,48 @@ function AdminDashboard() {
                 <i class="fa-solid fa-user"></i>
                 <h3>Customers</h3> {/* Mostra il numero di clienti */}
             </div>
-            
+            </div>
+
+            <table className={styles.customerTable}>
+                <thead>
+                    <tr>
+                    <th className={styles.campi}>Order Id</th>
+                        <th className={styles.campi}>User Id</th>
+                        <th className={styles.campi}>Created At</th>
+                        <th className={styles.campi}>Product</th>
+                        <th className={styles.campi}>Total Price</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {orders.length > 0 ? (
+                        orders
+                            .map((order) => (
+                                <tr key={order.id} className={styles.customerRow}>
+                                    <td className={styles.customerContent}>
+                                        {order.id}
+                                    </td>
+
+                                    <td className={styles.customerContent}>
+                                        {order.by_user}
+                                    </td>
+                                    <td className={styles.customerContent}>
+                                        {order.created_at}
+                                    </td>
+                                    <td className={styles.customerContent}>
+                                        {order.items}
+                                    </td>
+                                    <td className={styles.customerContent}>   
+                                        {order.total_price} </td>
+                                </tr>
+                            ))
+                    ) : (
+                        <tr>
+                            <td colSpan="2">No customers found.</td> {/* Messaggio di fallback se non ci sono clienti */}
+                        </tr>
+                    )}
+                </tbody>
+            </table>
+            </div>
 
             <main className={styles.content}></main>
         </div>
