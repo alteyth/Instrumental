@@ -63,3 +63,39 @@ export async function post(data){
     return fetchWrapper(url, options);
 }
 
+export async function postProduct(data){
+    const url = `${BASE_URL}/products`;
+    const options = {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data)
+    };
+    return fetchWrapper(url, options);
+}
+
+export async function uploadProductImage(imageFile) {
+    const url = `${BASE_URL}/upload-image`;
+
+    // Crea un form data per contenere il file
+    const formData = new FormData();
+    formData.append('image', imageFile); // 'image' è il nome del campo usato da multer nel backend
+
+    const options = {
+        method: 'POST',
+        body: formData, // Non c'è bisogno di specificare il Content-Type, lo farà automaticamente
+    };
+
+    try {
+        const response = await fetch(url, options);
+
+        if (!response.ok) {
+            const error = await response.json();
+            throw new Error(error.message || 'Something went wrong during file upload');
+        }
+
+        return await response.json(); // Ritorna la risposta in caso di successo
+    } catch (error) {
+        console.error('Error during image upload:', error);
+        throw error;
+    }
+}

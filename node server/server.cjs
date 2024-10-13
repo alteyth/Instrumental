@@ -9,34 +9,54 @@ const port = process.env.PORT;
 const connectionString = process.env.DATABASE_URL;
 const sql = postgres(connectionString);
 
-const multer = require('multer');
+const multer = require('multer');  // Multer per management delle immagini
 const path = require('path');
 
-// Configura multer per salvare i file nella cartella degli assets
+// Imposta il percorso della cartella dove verranno salvate le immagini
 const storage = multer.diskStorage({
-    destination: (req, file, cb) => {
-        cb(null, path.join(__dirname, '../assets')); // Percorso della cartella degli assets
+    destination: function (req, file, cb) {
+        cb(null, '../assets'); // cartella di destinazione
     },
-    filename: (req, file, cb) => {
-        cb(null, Date.now() + path.extname(file.originalname)); // Nome file unico
+    filename: function (req, file, cb) {
+        const filePath = path.join(__dirname, 'assets', file.originalname);
+
+        // Verifica se il file esiste già
+        if (fs.existsSync(filePath)) {
+            // Se il file esiste, restituisci un errore
+            cb(new Error('File already exists'));
+        } else {
+            // Altrimenti usa il nome originale
+            cb(null, file.originalname);
+        }
     }
 });
 
-const upload = multer({ storage });
+const upload = multer({ storage: storage }).single('image');
 
-app.post('/api/products', upload.single('image'), async (req, res) => {
-    const { name, price } = req.body;
-    const image_src = req.file.path; // Ottieni il percorso del file caricato
+// Gestione dell'upload in un endpoint
+app.post('/api/upload-image', (req, res) => {
+    upload(req, res, function (err) {
+        if (err) {
+            // Se c'è un errore (es. file già esistente), restituisci un errore al client
+            return res.status(400).json({ error: err.message });
+        }
+        // Se l'upload ha successo
+        res.status(200).json({ message: 'File uploaded successfully', filename: req.file.originalname });
+    });
+});
 
-    if (!name || !price || !image_src) {
-        res.status(400).json({ error: 'Name, price, and image are required' });
+app.post('/api/products', async (req, res) => {
+    const { name, price, image } = req.body;
+
+    if (!name || !price || !image) {
+        res.status(400).json({ error: 'Name, price, and image path are required' });
         return;
     }
 
     try {
         const result = await sql`
         INSERT INTO products (name, price, image_src)
-        VALUES (${name}, ${price}, ${image_src})
+        VALUES (${name}, ${price}, ${image})
         RETURNING *`;
 
         res.status(201).json(result);
