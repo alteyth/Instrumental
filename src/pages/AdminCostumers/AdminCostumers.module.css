@@ -65,9 +65,9 @@
 
 .link {
     padding-left: 20px;
-    color: grey; /* Colore del testo dei link */
-    text-decoration: none; /* Rimuovi sottolineatura */
-    transition: color 0.3s; /* Transizione per il hover */
+    color: grey; 
+    text-decoration: none; 
+    transition: color 0.3s; 
 }
 
 .link:hover {
@@ -88,7 +88,7 @@
 
 /* AdminDashboard.module.css */
 .customerTable {
-    
+    background-color: white;
     width: 100vh; 
     height: 50%;
     border-collapse: collapse; 

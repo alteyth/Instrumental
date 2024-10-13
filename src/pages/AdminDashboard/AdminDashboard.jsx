@@ -59,35 +59,35 @@ function AdminDashboard() {
     }
     
     return (
-        <div>
+        <div className={styles.mainContainer}>
         <div className={styles.adminDashboard}>
             <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
             <nav className={styles.sidebar}>
 
                 <ul className={styles.ul}>
-                    <li>
+                    <li className={styles.linkContainer}>
                         <i class="fa-solid fa-house"></i>
                         <Link to="/" className={styles.link}>Home</Link>
                     </li>
 
-                    <li>
+                    <li className={styles.linkContainer}>
                         <i className="fa-solid fa-chart-simple"></i>
                         <Link to="/admin" className={styles.link}>
                             Dashboard
                         </Link>
                     </li>
 
-                    <li>
+                    <li className={styles.linkContainer}>
                         <i className="fa-solid fa-cart-shopping"></i>
                         <Link to="/admin/products" className={styles.link}>Products</Link>
                     </li>
 
-                    <li>
+                    <li className={styles.linkContainer}>
                         <i className="fa-solid fa-user"></i>
                         <Link to="/admin/customers" className={styles.link}>Customers</Link>
                     </li>
 
-                    <li>
+                    <li className={styles.logoutButtonContainer}>
                         <i class="fa-solid fa-right-from-bracket"></i>
                         <Link onClick={logout} className={styles.logoutButton}> Logout </Link>
                     </li>
