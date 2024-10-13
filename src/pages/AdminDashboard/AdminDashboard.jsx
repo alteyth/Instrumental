@@ -94,8 +94,8 @@ function AdminDashboard() {
                     
                 </ul>
             </nav>
-            <div  className={styles.h1Dashboard}>
-            <h1>Dashboard</h1>
+            <div  className={styles.dashboardContainer}>
+            <h1 className={styles.h1Dashboard}>Dashboard</h1>
             
             <div className={styles.boxesContainer}>
             <div className={styles.totalPrice}>                    

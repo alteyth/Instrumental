@@ -16,15 +16,16 @@
 }
 
 .h1Customers{
+    border-bottom: solid rgb(94, 94, 94) 1px;
+    padding-bottom: 20px;
+    margin-left: 30px;
     margin-left: 20px;
     display: flex;
-    width: 50vh;
     flex-direction: column;
 }
 
 
 .sidebar {
-   
     display: flex;
     position: sticky;
     border-right: solid rgb(192, 192, 192) 1px;
@@ -36,10 +37,8 @@
 }
 
 .content {
-    
     flex: 1; 
     padding: 20px; 
-
 }
 
 .h3 {
@@ -79,7 +78,6 @@
 }
 
 .logoutButton {
-
     padding-left: 20px;
     color: grey; 
     text-decoration: none; 
@@ -88,16 +86,17 @@
 
 /* AdminDashboard.module.css */
 .customerTable {
-    background-color: white;
-    width: 100vh; 
+    box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+    background-color: rgba(255, 255, 255, 0.432);
+    width: 150vh; 
     height: 50%;
     border-collapse: collapse; 
-    margin: 80px;
+    margin: 25px;
 }
 
 .customerTable th,
 .customerTable td {
-    padding: 0px 15px; 
+    padding: 15px 15px; 
     border-bottom: 1px solid #ddd; 
     text-align: left; 
 }

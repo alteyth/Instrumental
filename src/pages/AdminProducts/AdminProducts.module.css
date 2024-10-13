@@ -21,7 +21,9 @@
 
 
 .h1Products{
-    margin-left: 20px;
+    border: solid black;
+    padding-bottom: 20px;
+    margin-left: 30px;
 }
 
 
