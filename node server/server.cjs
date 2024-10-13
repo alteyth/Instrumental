@@ -9,6 +9,43 @@ const port = process.env.PORT;
 const connectionString = process.env.DATABASE_URL;
 const sql = postgres(connectionString);
 
+const multer = require('multer');
+const path = require('path');
+
+// Configura multer per salvare i file nella cartella degli assets
+const storage = multer.diskStorage({
+    destination: (req, file, cb) => {
+        cb(null, path.join(__dirname, '../assets')); // Percorso della cartella degli assets
+    },
+    filename: (req, file, cb) => {
+        cb(null, Date.now() + path.extname(file.originalname)); // Nome file unico
+    }
+});
+
+const upload = multer({ storage });
+
+app.post('/api/products', upload.single('image'), async (req, res) => {
+    const { name, price } = req.body;
+    const image_src = req.file.path; // Ottieni il percorso del file caricato
+
+    if (!name || !price || !image_src) {
+        res.status(400).json({ error: 'Name, price, and image are required' });
+        return;
+    }
+
+    try {
+        const result = await sql`
+        INSERT INTO products (name, price, image_src)
+        VALUES (${name}, ${price}, ${image_src})
+        RETURNING *`;
+
+        res.status(201).json(result);
+    } catch (error) {
+        console.error('Error in data insertion', error);
+        res.status(500).json({ error: 'Error in data insertion' });
+    }
+});
+
 app.get('/api/users', async (req, res) => {
     try{
         const result = await sql`
