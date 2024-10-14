@@ -109,3 +109,5 @@ export async function uploadProductImage(imageFile) {
         throw error;
     }
 }
+
+// Ho fame
