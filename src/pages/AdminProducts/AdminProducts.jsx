@@ -64,7 +64,7 @@ function AdminProducts() {
     }
     
     return (
-        <div>
+        <div className={styles.productsContainer}>
         <div className={styles.adminDashboard}>
             <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
 
@@ -99,8 +99,13 @@ function AdminProducts() {
                     
                 </ul>
             </nav>
+            <div>
             <h1 className={styles.h1Products}>Products</h1>
-            <button> + Product </button>
+
+            <div className={styles.addProductButtonContainer}>
+                <button className={styles.addProductButton}> + PRODUCT </button>
+            </div> 
+
             <table className={styles.customerTable}>
                 <thead>
                     <tr>
@@ -127,7 +132,7 @@ function AdminProducts() {
                     )}
                 </tbody>
             </table>
-
+            </div>
             </div>
             </div>
     );

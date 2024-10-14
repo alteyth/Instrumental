@@ -1,4 +1,8 @@
 /* AdminDashboard.module.css */
+.mainContainer{
+    background-color: #f4f4f4;
+}
+
 .adminDashboard {
     display: flex;
     height: 100vh; /* Usa l'altezza della viewport per il layout */
@@ -119,7 +123,7 @@
 }
 
 .customerTable {
-    box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+    
     background-color: rgba(255, 255, 255, 0.432);
     width: 150vh; 
     height: 50%;
@@ -135,7 +139,7 @@
 }
 
 .customerTable th {
-    background-color: #f4f4f4; 
+    
     font-weight: bold;
 }
 
@@ -150,4 +154,26 @@
 .campi {
     font-weight: bold;
     padding: 5px;
+}
+
+.addProductButtonContainer {
+    margin-bottom: 20px;
+    margin-left: 20px;
+
+}
+
+.addProductButton {
+    background-color: #d197c9;
+    color: white;
+    font-weight: 200;
+    border: none;
+    padding: 10px 30px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.addProductButton:hover {
+    transition: 0.3s;
+    background-color: #bd7bb3;
 }
