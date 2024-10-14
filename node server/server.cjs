@@ -279,6 +279,26 @@ app.delete('/api/users/:id', async(req, res) => {
     }
 });
 
+app.delete('/api/products/:id', async (req, res) => {
+    const productId = req.params.id;
+    try {
+        const result = await sql`
+        DELETE FROM products
+        WHERE id = ${productId}
+        RETURNING *`;
+
+        if (result.count === 0) {
+            res.status(404).json({ error: 'Product not found' });
+            return;
+        }
+
+        res.status(200).json({ message: 'Product deleted successfully' });
+    } catch (error) {
+        console.error('Error deleting product:', error);
+        res.status(500).json({ error: 'Error deleting product' });
+    }
+});
+
 app.get('/api/order', async (req, res) => {
     try {
         const result = await sql`

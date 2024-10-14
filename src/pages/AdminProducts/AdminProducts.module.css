@@ -21,7 +21,6 @@
 
 
 .h1Products{
-    border: solid black;
     padding-bottom: 20px;
     margin-left: 30px;
 }
@@ -78,7 +77,6 @@
 }
 
 .orderCount{
-    
     margin-top: 50px;
     margin-left: 30px;
     background-color: rgb(240, 214, 144);
@@ -114,9 +112,42 @@
 }
 
 .logoutButton {
-   
     padding-left: 20px;
     color: grey; /* Colore del testo dei link */
     text-decoration: none; /* Rimuovi sottolineatura */
     transition: color 0.3s; /* Transizione per il hover */
+}
+
+.customerTable {
+    box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+    background-color: rgba(255, 255, 255, 0.432);
+    width: 150vh; 
+    height: 50%;
+    border-collapse: collapse; 
+    margin: 25px;
+}
+
+.customerTable th,
+.customerTable td {
+    padding: 15px 15px; 
+    border-bottom: 1px solid #ddd; 
+    text-align: left; 
+}
+
+.customerTable th {
+    background-color: #f4f4f4; 
+    font-weight: bold;
+}
+
+.customerTable tr:last-child td {
+    border-bottom: none; 
+}
+
+.customerContent {
+    color: #333; 
+}
+
+.campi {
+    font-weight: bold;
+    padding: 5px;
 }
