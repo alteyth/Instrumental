@@ -10,6 +10,7 @@ const connectionString = process.env.DATABASE_URL;
 const sql = postgres(connectionString);
 
 const multer = require('multer');  // Multer per management delle immagini
+const fs = require('fs');
 const path = require('path');
 
 // Imposta il percorso della cartella dove verranno salvate le immagini
@@ -282,6 +283,20 @@ app.delete('/api/users/:id', async(req, res) => {
 app.delete('/api/products/:id', async (req, res) => {
     const productId = req.params.id;
     try {
+
+        const existingProduct = await sql`
+        SELECT id, image_src FROM products WHERE id = ${productId}`;
+
+        const imagePath = path.join(__dirname, '..', existingProduct[0].image_src);
+        fs.unlink(imagePath, (err) => {
+            if (err) {
+                console.error('Error deleting file:', err);
+                return res.status(500).json({ error: 'Error deleting image file' });
+            }
+
+            console.log('File deleted successfully');
+        });
+
         const result = await sql`
         DELETE FROM products
         WHERE id = ${productId}
