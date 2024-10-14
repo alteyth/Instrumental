@@ -100,7 +100,7 @@ function AdminProducts() {
                 </ul>
             </nav>
             <h1 className={styles.h1Products}>Products</h1>
-
+            <button> + Product </button>
             <table className={styles.customerTable}>
                 <thead>
                     <tr>
@@ -134,3 +134,6 @@ function AdminProducts() {
 }
 
 export default AdminProducts;
+
+
+//anche io 
