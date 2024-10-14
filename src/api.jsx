@@ -73,6 +73,16 @@ export async function postProduct(data){
     return fetchWrapper(url, options);
 }
 
+export async function deleteProduct(productId) {
+    const url = `${BASE_URL}/products/${productId}`;
+
+    const options = {
+        method: 'DELETE',
+        headers: { 'Content-Type': 'application/json' }
+    };
+    return fetchWrapper(url, options);
+}
+
 export async function uploadProductImage(imageFile) {
     const url = `${BASE_URL}/upload-image`;
 
