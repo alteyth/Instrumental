@@ -5,8 +5,10 @@
 
 .adminDashboard {
     display: flex;
-    height: 100vh; /* Usa l'altezza della viewport per il layout */
-    background-color: #f4f4f4; /* Colore di sfondo per il contenuto */
+    margin-left: 300px; 
+    padding: 20px; 
+    background-color: #f4f4f4; 
+    border-left: solid rgb(192, 192, 192) 1px;;
 }
 
 .ul{
@@ -14,19 +16,23 @@
 }
 
 .sidebar {
-    position: sticky;
-    border-right: solid rgb(192, 192, 192) 1px;
-    background-color: #f4f4f4; /* Colore di sfondo scuro */
-    color: rgb(0, 0, 0);
-    width: 250px; /* Larghezza fissa per la sidebar */
+    margin-top: 40px;
+    display: flex;
+    position: fixed; 
+    top: 0; 
+    left: 0;
+    height: 100vh; 
+    width: 250px; 
     padding: 0 1.7rem;
-    overflow: hidden;
+    flex-direction: column;
+    color: rgb(0, 0, 0);
+    padding: 0 1.7rem;
 }
 
 
 .h1Products{
     padding-bottom: 20px;
-    margin-left: 30px;
+    margin-left: 20px;
 }
 
 
@@ -124,7 +130,6 @@
 
 .customerTable {
     
-    background-color: rgba(255, 255, 255, 0.432);
     width: 150vh; 
     height: 50%;
     border-collapse: collapse; 

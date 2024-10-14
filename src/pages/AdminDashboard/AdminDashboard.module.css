@@ -21,13 +21,12 @@
 }
 
 .h1Dashboard{
-    border-bottom: solid rgb(94, 94, 94) 1px;
-    padding-bottom: 20px;
     margin-left: 30px;
 }
 
 .boxesContainer{
     display: flex;
+
 }
 
 .ul{
@@ -42,16 +41,10 @@
     left: 0;
     height: 100vh; 
     width: 250px; 
-    background-color: #f4f4f4;
     padding: 0 1.7rem;
     flex-direction: column;
-    
-    background-color: #f4f4f4; /* Colore di sfondo scuro */
     color: rgb(0, 0, 0);
-
     padding: 0 1.7rem;
-    
-    
 }
 
 .h3 {
@@ -157,11 +150,8 @@
 
 
 /* AdminDashboard.module.css */
-.customerTable {
-    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
-    background-color: rgba(255, 255, 255, 0.432);
+.customerTable {    
     margin: 30px;
-    
 }
 
 .customerTable th,
@@ -174,7 +164,7 @@
 }
 
 .customerTable th {
-    background-color: #f4f4f4; 
+    
     font-weight: bold;
 }
 

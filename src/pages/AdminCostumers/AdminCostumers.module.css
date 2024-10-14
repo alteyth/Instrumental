@@ -16,7 +16,6 @@
 }
 
 .h1Customers{
-    border-bottom: solid rgb(94, 94, 94) 1px;
     padding-bottom: 20px;
     margin-left: 30px;
     margin-left: 20px;
@@ -86,12 +85,10 @@
 
 /* AdminDashboard.module.css */
 .customerTable {
-    box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
-    background-color: rgba(255, 255, 255, 0.432);
     width: 150vh; 
     height: 50%;
     border-collapse: collapse; 
-    margin: 25px;
+    margin: 0px 25px;
 }
 
 .customerTable th,

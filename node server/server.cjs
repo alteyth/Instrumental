@@ -287,7 +287,7 @@ app.delete('/api/products/:id', async (req, res) => {
         const existingProduct = await sql`
         SELECT id, image_src FROM products WHERE id = ${productId}`;
 
-        const imagePath = path.join(__dirname, '..', existingProduct[0].image_src);
+        const imagePath = existingProduct[0].image_src;
         fs.unlink(imagePath, (err) => {
             if (err) {
                 console.error('Error deleting file:', err);

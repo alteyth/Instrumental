@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useSession } from "../../context/SessionContext";
 import { useNavigate, Link } from "react-router-dom"; // Usa Outlet per il rendering di contenuti figli
 import styles from "./AdminProducts.module.css";
-import { getOrders, get } from "../../api";
+import { getOrders, get, deleteProduct } from "../../api";
 import { getProducts } from "../../api";
 
 function AdminProducts() {
@@ -55,6 +55,17 @@ function AdminProducts() {
         fetchData();
     }, []);
 
+    const handleDelete = async (productId) => {
+        try {
+            // funzione per eliminare il prodotto
+            await deleteProduct(productId);
+            // tramite filter creiamo un nuovo array che contiene tutti i prodotti tranne quello che vogliamo eliminare
+            setProducts(products.filter(product => product.id !== productId));
+        } catch (error) {
+            console.error("Error deleting product:", error);
+        }
+    };
+
     // Contiamo il numero di ordini
     const orderCount = orders.length;
     const customerCount = customers.length;
@@ -64,7 +75,7 @@ function AdminProducts() {
     }
     
     return (
-        <div className={styles.productsContainer}>
+        <div className={styles.mainContainer}>
         <div className={styles.adminDashboard}>
             <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
 
@@ -120,9 +131,18 @@ function AdminProducts() {
                         products.map((product) => (
                                 <tr key={product.id} className={styles.customerRow}>
                                     <td className={styles.customerContent}>{product.id}</td>
+
                                     <td className={styles.customerContent}>{product.name}</td>
+
                                     <td className={styles.customerContent}>{product.price}</td>
+
                                     <td className={styles.customerContent}>{product.created_at}</td>
+
+                                    <button><i class="fa-solid fa-pencil"></i></button>
+                                    <button onClick={() => handleDelete(product.id)}>
+                                        <i class="fa-solid fa-trash"></i>
+                                    </button>
+
                                 </tr>
                             ))
                     ) : (
