@@ -1,6 +1,6 @@
 /* AdminDashboard.module.css */
-.mainContainer{
-    background-color: #f4f4f4;
+body{
+    background-color: #f4f4f4; 
 }
 
 .adminDashboard {
@@ -8,7 +8,7 @@
     margin-left: 300px; 
     padding: 20px; 
     background-color: #f4f4f4; 
-    border-left: solid rgb(192, 192, 192) 1px;;
+    
 }
 
 .ul{
@@ -121,7 +121,13 @@
     font-weight: 300;
 }
 
+.logoutButtonContainer{
+    position: absolute;
+    bottom: 0;
+}
+
 .logoutButton {
+    
     padding-left: 20px;
     color: grey; /* Colore del testo dei link */
     text-decoration: none; /* Rimuovi sottolineatura */
@@ -129,9 +135,8 @@
 }
 
 .customerTable {
-    
     width: 150vh; 
-    height: 50%;
+    height: 35%;
     border-collapse: collapse; 
     margin: 25px;
 }

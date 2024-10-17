@@ -1,4 +1,8 @@
 /* AdminDashboard.module.css */
+body{
+    background-color: #f4f4f4; 
+}
+
 .mainContainer{
     background-color: #f4f4f4;
 }
@@ -13,7 +17,7 @@
 
 
 .dashboardContainer{
-    border-left: solid rgb(192, 192, 192) 1px;
+    
     display: flex;
     width: 180vh;
     flex-direction: column;
@@ -68,9 +72,6 @@
     margin: 8px 0; /* Spaziatura tra i link */
 }
 
-
-
-
 .link {
     padding-left: 20px;
     color: grey; /* Colore del testo dei link */
@@ -100,7 +101,6 @@
 }
 
 .orderCount{
-    
     margin-top: 50px;
     margin-left: 30px;
     background-color: rgb(240, 214, 144);
@@ -136,12 +136,11 @@
 }
 
 .logoutButtonContainer{
-   border: solid red;
-
+    position: absolute;
+    bottom: 0;
 }
 
 .logoutButton {
-   
     padding-left: 20px;
     color: grey; 
     text-decoration: none; 
@@ -156,7 +155,6 @@
 
 .customerTable th,
 .customerTable td {
-
     padding: 10px 10px; 
     border-bottom: 2px solid #ddd; 
     text-align: left; 

@@ -27,7 +27,7 @@
 .sidebar {
     display: flex;
     position: sticky;
-    border-right: solid rgb(192, 192, 192) 1px;
+    
     background-color: #f4f4f4; /* Colore di sfondo scuro */
     color: rgb(0, 0, 0);
     width: 250px; /* Larghezza fissa per la sidebar */
@@ -76,6 +76,12 @@
     font-weight: 300;
 }
 
+
+.logoutButtonContainer{
+    position: absolute;
+    bottom: 0;
+}
+
 .logoutButton {
     padding-left: 20px;
     color: grey; 
@@ -86,14 +92,14 @@
 /* AdminDashboard.module.css */
 .customerTable {
     width: 150vh; 
-    height: 50%;
+    height: 35%;
     border-collapse: collapse; 
     margin: 0px 25px;
 }
 
 .customerTable th,
 .customerTable td {
-    padding: 15px 15px; 
+    padding: 10px 15px; 
     border-bottom: 1px solid #ddd; 
     text-align: left; 
 }

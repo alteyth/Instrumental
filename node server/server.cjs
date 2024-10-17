@@ -288,13 +288,13 @@ app.delete('/api/products/:id', async (req, res) => {
         SELECT id, image_src FROM products WHERE id = ${productId}`;
 
         const imagePath = existingProduct[0].image_src;
-        fs.unlink(imagePath, (err) => {
+        console.log(imagePath);
+        
+        fs.unlink(path.resolve(__dirname, imagePath), (err) => {
             if (err) {
                 console.error('Error deleting file:', err);
                 return res.status(500).json({ error: 'Error deleting image file' });
             }
-
-            console.log('File deleted successfully');
         });
 
         const result = await sql`

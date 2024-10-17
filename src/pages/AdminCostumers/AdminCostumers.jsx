@@ -81,7 +81,7 @@ function AdminCostumers() {
                         <Link to="/admin/customers" className={styles.link}>Customers</Link>
                     </li>
 
-                    <li>
+                    <li className={styles.logoutButtonContainer}>
                         <i class="fa-solid fa-right-from-bracket"></i>
                         <Link onClick={logout} className={styles.logoutButton}> Logout </Link>
                     </li>

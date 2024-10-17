@@ -75,10 +75,11 @@ function AdminProducts() {
     }
     
     return (
-        <div className={styles.mainContainer}>
+        <div className={styles.productsContainer}>
         <div className={styles.adminDashboard}>
+            
             <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
-
+            
             <nav className={styles.sidebar}>
                 <ul className={styles.ul}>
                     <li>
@@ -103,7 +104,7 @@ function AdminProducts() {
                         <Link to="/admin/customers" className={styles.link}>Customers</Link>
                     </li>
 
-                    <li>
+                    <li className={styles.logoutButtonContainer}>
                         <i class="fa-solid fa-right-from-bracket"></i>
                         <Link onClick={logout} className={styles.logoutButton}> Logout </Link>
                     </li>
@@ -154,7 +155,7 @@ function AdminProducts() {
             </table>
             </div>
             </div>
-            </div>
+    </div>       
     );
 }
 
