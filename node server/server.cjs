@@ -54,10 +54,12 @@ app.post('/api/products', async (req, res) => {
         return;
     }
 
+    const imagePath = `../assets/${image}`;
+
     try {
         const result = await sql`
         INSERT INTO products (name, price, image_src)
-        VALUES (${name}, ${price}, ${image})
+        VALUES (${name}, ${price}, ${imagePath})
         RETURNING *`;
 
         res.status(201).json(result);
