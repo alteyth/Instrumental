@@ -4,6 +4,7 @@ import { useNavigate, Link } from "react-router-dom"; // Usa Outlet per il rende
 import styles from "./AdminProducts.module.css";
 import { getOrders, get, deleteProduct } from "../../api";
 import { getProducts } from "../../api";
+import Modal from "../Modal/Modal";
 
 function AdminProducts() {
     const [products, setProducts] = useState([]);
@@ -12,7 +13,17 @@ function AdminProducts() {
     const [customers, setCustomers] = useState([]);
     const [loading, setLoading] = useState(true);
     const [totalPrice, setTotalPrice] = useState(0);
+    const [showModal, setShowModal] = useState(false);
     const navigate = useNavigate();
+
+    const handleAddProductClick = () => {
+        setShowModal(true);
+    };
+
+    const handleCloseModal = () => {
+        setShowModal(false);
+    };
+
 
     useEffect(() => {
         // Controlla se l'utente è autenticato e se è un admin
@@ -115,8 +126,18 @@ function AdminProducts() {
             <h1 className={styles.h1Products}>Products</h1>
 
             <div className={styles.addProductButtonContainer}>
-                <button className={styles.addProductButton}> + PRODUCT </button>
+                <button 
+                    className={styles.addProductButton} 
+                    onClick={handleAddProductClick} 
+                >
+                    + PRODUCT
+                </button>
             </div> 
+
+            {/* Modale con form per aggiungere prodotto */}
+            <Modal show={showModal} onClose={handleCloseModal}>
+                <h2>Add New Product</h2>
+            </Modal>
 
             <table className={styles.customerTable}>
                 <thead>
