@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from "react";
+import { useForm } from "react-hook-form";
 import { useSession } from "../../context/SessionContext";
 import { useNavigate, Link } from "react-router-dom"; // Usa Outlet per il rendering di contenuti figli
 import styles from "./AdminProducts.module.css";
-import { getOrders, get, deleteProduct } from "../../api";
+import { getOrders, get, deleteProduct, postProduct, uploadProductImage } from "../../api";
 import { getProducts } from "../../api";
 import Modal from "../Modal/Modal";
 
@@ -14,8 +15,10 @@ function AdminProducts() {
     const [loading, setLoading] = useState(true);
     const [totalPrice, setTotalPrice] = useState(0);
     const [showModal, setShowModal] = useState(false);
+    const [imageFile, setImageFile] = useState(null);
     const navigate = useNavigate();
-
+    const { register, handleSubmit, formState: { errors }, reset } = useForm();
+    
     const handleAddProductClick = () => {
         setShowModal(true);
     };
@@ -65,6 +68,43 @@ function AdminProducts() {
 
         fetchData();
     }, []);
+
+    const onSubmit = async (data) => {
+        if (!imageFile) {
+            alert("Per favore, carica un'immagine.");
+            return;
+        }
+
+        setUploading(true);
+        try {
+            // Prima, carica l'immagine
+            const imageResponse = await uploadProductImage(imageFile);
+            console.log("Immagine caricata:", imageResponse);
+
+            // Ora, invia i dettagli del prodotto, incluso il nome dell'immagine
+            const productData = {
+                name: data.name,
+                price: data.price,
+                image: imageResponse.filename // Supponendo che il backend restituisca il nome del file
+            };
+
+            const productResponse = await postProduct(productData);
+            console.log("Prodotto creato:", productResponse);
+            alert("Prodotto creato con successo!");
+        } catch (error) {
+            console.error("Errore durante la creazione del prodotto:", error);
+            alert("Impossibile creare il prodotto. Controlla la console per dettagli.");
+        } finally {
+            setUploading(false);
+        }
+    };
+
+    const handleImageChange = (event) => {
+        const file = event.target.files[0];
+        if (file) {
+            setImageFile(file);
+        }
+    };
 
     const handleDelete = async (productId) => {
         try {
@@ -134,10 +174,35 @@ function AdminProducts() {
                 </button>
             </div> 
 
-            {/* Modale con form per aggiungere prodotto */}
-            <Modal show={showModal} onClose={handleCloseModal}>
-                <h2>Add New Product</h2>
-            </Modal>
+             {/* Modale con form per aggiungere prodotto */}
+             <Modal show={showModal} onClose={handleCloseModal}>
+                        <h2>Add New Product</h2>
+                        <form onSubmit={handleSubmit(onSubmit)}>
+                            <div>
+                                <label htmlFor="name">Product Name</label>
+                                <input
+                                    id="name"
+                                    {...register("name", { required: "Product name is required" })}
+                                />
+                                {errors.name && <p className={styles.error}>{errors.name.message}</p>}
+                            </div>
+
+                            <div>
+                                <label htmlFor="price">Price</label>
+                                <input
+                                    id="price"
+                                    type="number"
+                                    step="0.01"
+                                    {...register("price", { required: "Price is required", min: 0 })}
+                                />
+                                {errors.price && <p className={styles.error}>{errors.price.message}</p>}
+                            </div>
+
+                            <button type="submit" className={styles.submitButton}>
+                                Add Product
+                            </button>
+                        </form>
+                    </Modal>
 
             <table className={styles.customerTable}>
                 <thead>
