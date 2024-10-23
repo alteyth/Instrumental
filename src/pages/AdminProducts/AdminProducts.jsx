@@ -9,6 +9,7 @@ import Modal from "../Modal/Modal";
 
 function AdminProducts() {
     const [products, setProducts] = useState([]);
+    const [uploading, setUploading] = useState(false);
     const { isAdmin, isLogged } = useSession();
     const [orders, setOrders] = useState([]);
     const [customers, setCustomers] = useState([]);
@@ -26,7 +27,6 @@ function AdminProducts() {
     const handleCloseModal = () => {
         setShowModal(false);
     };
-
 
     useEffect(() => {
         // Controlla se l'utente è autenticato e se è un admin
@@ -91,6 +91,9 @@ function AdminProducts() {
             const productResponse = await postProduct(productData);
             console.log("Prodotto creato:", productResponse);
             alert("Prodotto creato con successo!");
+            reset();
+            setShowModal(false); // Chiudi la modale
+            setProducts((prevProducts) => [...prevProducts, productResponse]); 
         } catch (error) {
             console.error("Errore durante la creazione del prodotto:", error);
             alert("Impossibile creare il prodotto. Controlla la console per dettagli.");
@@ -176,9 +179,9 @@ function AdminProducts() {
 
              {/* Modale con form per aggiungere prodotto */}
              <Modal show={showModal} onClose={handleCloseModal}>
-                        <h2>Add New Product</h2>
+                        <h2 className={styles.h2Modal}>Add New Product</h2>
                         <form onSubmit={handleSubmit(onSubmit)}>
-                            <div>
+                            <div className={styles.divModal}>
                                 <label htmlFor="name">Product Name</label>
                                 <input
                                     id="name"
@@ -187,7 +190,7 @@ function AdminProducts() {
                                 {errors.name && <p className={styles.error}>{errors.name.message}</p>}
                             </div>
 
-                            <div>
+                            <div className={styles.divModal}>
                                 <label htmlFor="price">Price</label>
                                 <input
                                     id="price"
@@ -198,8 +201,19 @@ function AdminProducts() {
                                 {errors.price && <p className={styles.error}>{errors.price.message}</p>}
                             </div>
 
+                            <div className={styles.divUpload}>
+                                <label htmlFor="image">Product Image</label>
+                                <input 
+                                    id="image" 
+                                    type="file" 
+                                    accept="image/*" 
+                                    onChange={handleImageChange} 
+                                />
+                            </div>
+
                             <button type="submit" className={styles.submitButton}>
-                                Add Product
+                                Add Product 
+                                {/* aggiungi nav verso product */}
                             </button>
                         </form>
                     </Modal>
@@ -225,10 +239,14 @@ function AdminProducts() {
 
                                     <td className={styles.customerContent}>{product.created_at}</td>
 
-                                    <button><i class="fa-solid fa-pencil"></i></button>
-                                    <button onClick={() => handleDelete(product.id)}>
+                                    {/* <td><button><i class="fa-solid fa-pencil"></i></button></td> */}
+                                   
+                                   <td>
+                                   <button onClick={() => handleDelete(product.id)}>
                                         <i class="fa-solid fa-trash"></i>
                                     </button>
+                                   </td>
+                                    
 
                                 </tr>
                             ))
