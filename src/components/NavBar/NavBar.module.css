@@ -10,9 +10,8 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: black;
     padding: 0 1rem;
-
+    margin-top: 8px;
 }
 
 .logo {
@@ -36,19 +35,21 @@ header {
 
 .menu a {
     text-decoration: none;
-    padding: 18.5px 3rem;
+    padding: 14.5px 1rem;
     font-size: 22px;
-    color: white;
+    color: black;
 }
 
 .menu ul li {
     display: flex;
     transition: 0.13s;
+    color: black;
 }
 
 .menu li:hover {
-    background-color: #222;
+    background-color: #b3b3b33d;
     transition: 0.16s;
+    border-radius: 16px;
 }
 
 .buttons {
@@ -57,16 +58,18 @@ header {
 }
 
 .buttons a {
+  
     display: flex;
     transition: 0.13s;
     text-decoration: none;
     padding: 21px 1rem;
-    color: white;
+    color: black;
     font-size: 22px;
 }
 
 .buttons a:hover {
-    background-color: #222;
+    background-color: #b3b3b33d;
+    border-radius: 16px;
 }
 
 .buttons .icon {

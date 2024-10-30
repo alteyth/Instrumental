@@ -94,6 +94,7 @@ function AdminProducts() {
             reset();
             setShowModal(false); // Chiudi la modale
             setProducts((prevProducts) => [...prevProducts, productResponse]); 
+            navigate("/admin");
         } catch (error) {
             console.error("Errore durante la creazione del prodotto:", error);
             alert("Impossibile creare il prodotto. Controlla la console per dettagli.");

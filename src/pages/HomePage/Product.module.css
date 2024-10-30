@@ -1,11 +1,28 @@
+.productsContainer {
+    border: solid red;
+    display: flex;
+    justify-content: center; /* Centra orizzontalmente */
+    width: 100%; /* Assicurati che occupi tutto lo spazio disponibile */
+}
+
+
 .product{
-    border: solid 2px black;
-    border-radius: 12px;
-    margin: 100px;
+    margin: 5px; /* Margine più stretto tra i prodotti */
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    background-color: white;
+    max-width: 300px;
+    max-height: 500px;
+}
+
+.product img {
+    padding: 4px 8px;
+    width: 100%; /* Ensure image occupies full width of the product card */
+    height: 250px; /* Fixed height for consistency */
+    
+    object-fit: cover; /* Ensures the image covers the area without distorting */
 }
 
 .addToCartBttn{

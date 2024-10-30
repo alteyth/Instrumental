@@ -1,6 +1,5 @@
 import React, { useEffect } from "react";
 import { ShoppingCart } from "phosphor-react";
-import Logo from "../../assets/instrumental.svg";
 import styles from "./NavBar.module.css";
 import SearchBar from "../SearchBar/SearchBar";
 import { Link, useLocation } from "react-router-dom";
@@ -36,7 +35,7 @@ function NavBar() {
     return (
         <>
             <header className={styles.header}>
-                <Link to="/"><img src={Logo} alt="Logo Instrumental" className={styles.logo}/></Link>
+                <Link to="/"><img src="src\assets\instrumentallogo.png" alt="Logo Instrumental" className={styles.logo}/></Link>
 
                 {!isAdminDashboard && (
                     <>
