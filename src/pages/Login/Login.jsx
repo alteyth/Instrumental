@@ -94,9 +94,11 @@ function Login(){
         
         <>
         <div className={styles.pageLayout}>
-            <h1>Login</h1>
+            
             <div className={styles.layout}>
+                
                 <form onSubmit={handleSubmit} className={styles.loginForm}>
+                <h1>Login</h1>
                     <div>
                         <input type="text" name="email" id="email" required placeholder="Email address"/>
                     </div>

@@ -30,17 +30,21 @@ input {
     font-size: 16px;
     margin: 12px;
     border-radius: 8px;
-    border-width: 1px;
+    border: none;
+    box-shadow: rgba(0, 0, 0, 0.18) 0px 2px 4px;
 }
 
+
 .loginForm{
-    border: solid 1px #555;
+    background-color: white;
     border-radius: 8px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     min-width: 66%;
+    width: 350px;
+    height: 400px;
 }
 
 .loginForm button{
