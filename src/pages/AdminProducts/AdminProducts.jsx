@@ -3,7 +3,7 @@ import { useForm } from "react-hook-form";
 import { useSession } from "../../context/SessionContext";
 import { useNavigate, Link } from "react-router-dom"; // Usa Outlet per il rendering di contenuti figli
 import styles from "./AdminProducts.module.css";
-import { getOrders, get, deleteProduct, postProduct, uploadProductImage } from "../../api";
+import { getOrders, get, deleteProduct, postProduct, uploadProductImage, updateProduct } from "../../api";
 import { getProducts } from "../../api";
 import Modal from "../Modal/Modal";
 
@@ -17,6 +17,7 @@ function AdminProducts() {
     const [totalPrice, setTotalPrice] = useState(0);
     const [showModal, setShowModal] = useState(false);
     const [imageFile, setImageFile] = useState(null);
+    const [editingProduct, setEditingProduct] = useState(null);
     const navigate = useNavigate();
     const { register, handleSubmit, formState: { errors }, reset } = useForm();
     
@@ -24,8 +25,14 @@ function AdminProducts() {
         setShowModal(true);
     };
 
+    const handleEdit = (product) => {
+        setEditingProduct(product);
+        setShowModal(true); // Apri il modal per la modifica
+    };
+
     const handleCloseModal = () => {
         setShowModal(false);
+        setEditingProduct(null);
     };
 
     useEffect(() => {
@@ -57,7 +64,7 @@ function AdminProducts() {
 
 
                 const ProductsData= await getProducts(); //ottiene i prodotti
-                setProducts(ProductsData); //salva i prodotti nello stato setOrders
+                setProducts(ProductsData); //salva i prodotti nello stato setProducts
 
             } catch (error) {
                 console.error("Error while trying to pull data", error);
@@ -81,7 +88,7 @@ function AdminProducts() {
             const imageResponse = await uploadProductImage(imageFile);
             console.log("Immagine caricata:", imageResponse);
 
-            // Ora, invia i dettagli del prodotto, incluso il nome dell'immagine
+            //invia i dettagli del prodotto incluso il nome dell'immagine
             const productData = {
                 name: data.name,
                 price: data.price,
@@ -92,7 +99,7 @@ function AdminProducts() {
             console.log("Prodotto creato:", productResponse);
             alert("Prodotto creato con successo!");
             reset();
-            setShowModal(false); // Chiudi la modale
+            setShowModal(false); //chiude la modale
             setProducts((prevProducts) => [...prevProducts, productResponse]); 
             navigate("/admin");
         } catch (error) {
@@ -101,6 +108,10 @@ function AdminProducts() {
         } finally {
             setUploading(false);
         }
+
+        setUploading(true);
+
+
     };
 
     const handleImageChange = (event) => {
@@ -121,7 +132,7 @@ function AdminProducts() {
         }
     };
 
-    // Contiamo il numero di ordini
+    // Conta il numero di ordini
     const orderCount = orders.length;
     const customerCount = customers.length;
 
@@ -181,6 +192,7 @@ function AdminProducts() {
              {/* Modale con form per aggiungere prodotto */}
              <Modal show={showModal} onClose={handleCloseModal}>
                         <h2 className={styles.h2Modal}>Add New Product</h2>
+
                         <form onSubmit={handleSubmit(onSubmit)}>
                             <div className={styles.divModal}>
                                 <label htmlFor="name">Product Name</label>
@@ -217,6 +229,51 @@ function AdminProducts() {
                                 {/* aggiungi nav verso product */}
                             </button>
                         </form>
+
+                    </Modal>
+
+                    <Modal show={showModal} onClose={handleCloseModal}>
+                        <h2 className={styles.h2Modal}>
+                            {editingProduct ? "Edit Product" : "Add New Product"}
+                        </h2>
+
+                        <form onSubmit={handleSubmit(onSubmit)}>
+                            <div className={styles.divModal}>
+                                <label htmlFor="name">Product Name</label>
+                                <input
+                                    id="name"
+                                    defaultValue={editingProduct ? editingProduct.name : ""} // Precompila se in modifica
+                                    {...register("name", { required: "Product name is required" })}
+                                />
+                                {errors.name && <p className={styles.error}>{errors.name.message}</p>}
+                            </div>
+
+                            <div className={styles.divModal}>
+                                <label htmlFor="price">Price</label>
+                                <input
+                                    id="price"
+                                    type="number"
+                                    step="0.01"
+                                    defaultValue={editingProduct ? editingProduct.price : ""} // Precompila se in modifica
+                                    {...register("price", { required: "Price is required", min: 0 })}
+                                />
+                                {errors.price && <p className={styles.error}>{errors.price.message}</p>}
+                            </div>
+
+                            <div className={styles.divUpload}>
+                                <label htmlFor="image">Product Image</label>
+                                <input 
+                                    id="image" 
+                                    type="file" 
+                                    accept="image/*" 
+                                    onChange={handleImageChange} 
+                                />
+                            </div>
+
+                            <button type="submit" className={styles.submitButton}>
+                                {editingProduct ? "Update Product" : "Add Product"}
+                            </button>
+                        </form>
                     </Modal>
 
             <table className={styles.customerTable}>
@@ -241,7 +298,12 @@ function AdminProducts() {
                                     <td className={styles.customerContent}>{product.created_at}</td>
 
                                     {/* <td><button><i class="fa-solid fa-pencil"></i></button></td> */}
-                                   
+                                    <td>
+                                        <button onClick={() => handleEdit(product)}>
+                                            <i class="fa-solid fa-pencil"></i> {/* Icona di modifica */}
+                                        </button>
+                                    </td>
+
                                    <td>
                                    <button onClick={() => handleDelete(product.id)}>
                                         <i class="fa-solid fa-trash"></i>

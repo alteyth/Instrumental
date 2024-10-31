@@ -1,3 +1,7 @@
+.homeContainer{
+    background-color: white;
+}
+
 .productsContainer {
     display: flex;
     justify-content: center; 
@@ -12,10 +16,11 @@
     gap: 0px; 
     width: 100%; 
     margin-top: 50px;
+    
 }
 
 .banner {
-    background-color: white;
+    background-color: #f8f4f4;
     color: black;   
     padding: 70px 20px; 
     margin: 20px auto 10px; 

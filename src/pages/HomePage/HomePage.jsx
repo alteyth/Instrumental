@@ -47,6 +47,7 @@ function HomePage() {
   return(
     <>
       {/* Banner di Benvenuto */}
+      <div  className={styles.homeContainer}>
       <div className={styles.banner}>
         <div className={styles.bannerText}>
           <h1>Instrumental</h1>
@@ -70,6 +71,7 @@ function HomePage() {
             )
           )}
         </div>
+      </div>
       </div>
     </>
   );

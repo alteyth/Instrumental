@@ -38,7 +38,7 @@ function App() {
                     </div>
 
                     {/* Il footer non verrà mostrato se siamo nella admin dashboard */}
-                    {location.pathname !== "/admin" || location.pathname !== "/admin/products" || location.pathname !== "/admin/customers" && <Footer />} 
+                    {location.pathname !== "/admin" && location.pathname !== "/admin/products" && location.pathname !== "/admin/customers" && <Footer />} 
                 </SessionProvider>
         </>
     );

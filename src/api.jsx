@@ -109,3 +109,19 @@ export async function uploadProductImage(imageFile) {
         throw error;
     }
 }
+
+export const updateProduct = async (productId, updatedProductData) => {
+    const response = await fetch(`/api/products/${productId}`, {
+        method: "PUT",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify(updatedProductData),
+    });
+
+    if (!response.ok) {
+        throw new Error("Failed to update the product");
+    }
+
+    return await response.json();
+};
