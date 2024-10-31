@@ -58,6 +58,7 @@ function PersonalArea(){
 
     return(
         <>
+        <div className={styles.paContainer}>
                 {
                     loading ? (
                         <>
@@ -94,7 +95,7 @@ function PersonalArea(){
                                     hasOrders ? 
                                     <>
                                         {orders.map((order) => (
-                                        <Order key={order.id} data={order}/>
+                                        <Order key={order.id} data={order} />
                                         ))}
                                     </>
                                     :
@@ -106,6 +107,7 @@ function PersonalArea(){
                       </div>
                       </>
                 }
+            </div>
         </>
     )
 }

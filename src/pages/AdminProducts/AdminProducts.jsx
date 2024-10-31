@@ -149,7 +149,7 @@ function AdminProducts() {
             <nav className={styles.sidebar}>
                 <ul className={styles.ul}>
                     <li>
-                        <i class="fa-solid fa-house"></i>
+                        <i className="fa-solid fa-house"></i>
                         <Link to="/" className={styles.link}>Home</Link>
                     </li>
 
@@ -171,7 +171,7 @@ function AdminProducts() {
                     </li>
 
                     <li className={styles.logoutButtonContainer}>
-                        <i class="fa-solid fa-right-from-bracket"></i>
+                        <i className="fa-solid fa-right-from-bracket"></i>
                         <Link onClick={logout} className={styles.logoutButton}> Logout </Link>
                     </li>
                     
@@ -297,16 +297,15 @@ function AdminProducts() {
 
                                     <td className={styles.customerContent}>{product.created_at}</td>
 
-                                    {/* <td><button><i class="fa-solid fa-pencil"></i></button></td> */}
                                     <td>
                                         <button onClick={() => handleEdit(product)}>
-                                            <i class="fa-solid fa-pencil"></i> {/* Icona di modifica */}
+                                            <i className="fa-solid fa-pencil"></i> {/* Icona di modifica */}
                                         </button>
                                     </td>
 
                                    <td>
                                    <button onClick={() => handleDelete(product.id)}>
-                                        <i class="fa-solid fa-trash"></i>
+                                        <i  className="fa-solid fa-trash"></i>
                                     </button>
                                    </td>
                                     

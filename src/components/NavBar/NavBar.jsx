@@ -69,6 +69,8 @@ function NavBar() {
                                     <ShoppingCart size={20} />
                                 </Link>
                             ) : (
+
+                                
                                 <Link to="/" className={styles.icon}>
                                     <ShoppingCart size={20} />
                                 </Link>

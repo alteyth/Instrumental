@@ -60,7 +60,7 @@ function AdminCostumers() {
             <nav className={styles.sidebar}>
                 <ul className={styles.ul}>
                     <li>
-                        <i class="fa-solid fa-house"></i>
+                        <i  className="fa-solid fa-house"></i>
                         <Link to="/" className={styles.link}>Home</Link>
                     </li>
 
@@ -82,7 +82,7 @@ function AdminCostumers() {
                     </li>
 
                     <li className={styles.logoutButtonContainer}>
-                        <i class="fa-solid fa-right-from-bracket"></i>
+                        <i  className="fa-solid fa-right-from-bracket"></i>
                         <Link onClick={logout} className={styles.logoutButton}> Logout </Link>
                     </li>
                     

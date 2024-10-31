@@ -5,7 +5,7 @@ footer {
     flex-direction: column;
     align-items: center;
     background-color:  #f8f4f4;;
-    margin-top: 12%;
+    margin-top: 2%;
 }
 
 
@@ -13,22 +13,22 @@ footer {
 .logo {
     padding: 4px;
     color: black;
-    background-color: black;
+    background-color: rgb(112, 112, 112);
 }
 
 footer p {
     color: rgb(255, 255, 255);
-    color: black;
+    color: rgb(112, 112, 112);
 }
 
 .ghlogo{
     padding: 4px 8px;
-    background-color: black;
+    background-color: rgb(112, 112, 112);
 
 }
 
 .lilogo{
     padding: 4px 8px;
-    background-color: black;
+    background-color: rgb(112, 112, 112);
 
 }

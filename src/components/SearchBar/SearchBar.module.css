@@ -24,6 +24,18 @@
     text-indent: 8px;
 }
 
+.searchButton {
+    background: none;
+    border: none;
+    cursor: pointer;
+    margin-left: 4px;
+}
+
+.searchButton i {
+    font-size: 18px; 
+    color: #6a6a6a; /* Colore dell'icona */
+}
+
 /* Media query for tablets */
 @media (max-width: 768px) {
 

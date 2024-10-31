@@ -66,7 +66,7 @@ function AdminDashboard() {
 
                 <ul className={styles.ul}>
                     <li className={styles.linkContainer}>
-                        <i class="fa-solid fa-house"></i>
+                        <i  className="fa-solid fa-house"></i>
                         <Link to="/" className={styles.link}>Home</Link>
                     </li>
 
@@ -88,7 +88,7 @@ function AdminDashboard() {
                     </li>
 
                     <li className={styles.logoutButtonContainer}>
-                        <i class="fa-solid fa-right-from-bracket"></i>
+                        <i  className="fa-solid fa-right-from-bracket"></i>
                         <Link onClick={logout} className={styles.logoutButton}> Logout </Link>
                     </li>
                     
@@ -107,13 +107,13 @@ function AdminDashboard() {
             {/* Nuova sezione per mostrare il numero di ordini */}
             <div className={styles.orderCount}>  
                 <h3>{orderCount}</h3>
-                <i class="fa-solid fa-cart-shopping"></i>
+                <i  className="fa-solid fa-cart-shopping"></i>
                 <h3>Orders </h3> {/* Mostra il numero di ordini */}
             </div>
 
             <div className={styles.customerCount}>  
                 <h3>{customerCount}</h3>
-                <i class="fa-solid fa-user"></i>
+                <i  className="fa-solid fa-user"></i>
                 <h3>Customers</h3> {/* Mostra il numero di clienti */}
             </div>
             </div>
