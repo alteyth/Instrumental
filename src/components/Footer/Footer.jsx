@@ -13,7 +13,7 @@ function Footer() {
                     className={styles.logo}
                 />
             </div>
-            <p>Copyright © 2024 Simone Seria Ltd.</p>
+            <p>Copyright © 2024 Instrumental Ltd.</p>
             <div className={styles.refs}>
         
                     <a href="https://github.com/alteyth" target="_blank"><GithubLogo className={styles.ghlogo} size={32} color="white" /></a>
