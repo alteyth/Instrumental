@@ -22,6 +22,7 @@ function CartProduct(props){
 
     return(
         <>
+        <div className={styles.cartContainer}>
             <div className={styles.product}>
                 <img src={image_src} />
                 <div className={styles.description}>
@@ -33,6 +34,7 @@ function CartProduct(props){
                     </p>
             </div>
             <button className={styles.removeBttn} onClick={() => removeProduct(props.data)}>Remove</button>
+            </div>
             </div>
         </>
     )

@@ -1,10 +1,17 @@
+.cartProduct{
+    display: flex;
+    flex-direction: row;
+}
+
+
 .product{
+    width: 600px;
     margin: 1rem;
     padding: 1.5rem;
-    border: solid 2px black;
+    background-color: white;
     border-radius: 12px;
     display: flex;
-    flex-direction: column;
+
     justify-content: center;
     align-items: center;
 }
@@ -31,6 +38,7 @@
     padding-top: 5px;
     padding-bottom: 5px;
     border-radius: 15px;
+    margin-left: 40px;
 }
 
 .removeBttn:hover{
